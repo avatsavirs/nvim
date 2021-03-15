@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/kartik/Dev/Courses/NextJS/FEM/production-grade-nextjs/pages'
+let g:netrw_dirhist_7='/home/kartik/Dev/Courses/NextJS/NetNinja/ninja-list/pages'
+let g:netrw_dirhist_6='/home/kartik/Dev/Courses/NextJS/NetNinja/ninja-list'
+let g:netrw_dirhist_5='/home/kartik/Dev/Courses/NextJS/FEM/production-grade-nextjs/node_modules/next-auth/dist/client'
+let g:netrw_dirhist_4='/home/kartik/Dev/Courses/NextJS/FEM/production-grade-nextjs/node_modules/next-auth/dist/server'
+let g:netrw_dirhist_3='/home/kartik/Dev/Courses/NextJS/FEM/production-grade-nextjs/node_modules/next-auth'
+let g:netrw_dirhist_2='/home/kartik/Dev/Courses/NextJS/NetNinja/ninja-list/pages'
+let g:netrw_dirhist_1='/home/kartik/Dev/Courses/NextJS/NetNinja/ninja-list'
+let g:netrw_dirhist_0='/home/kartik/.config/zsh'
+let g:netrw_dirhist_9='/home/kartik/Dev/Playground/react-auth/src/components'
