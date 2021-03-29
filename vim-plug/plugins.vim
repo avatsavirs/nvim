@@ -11,4 +11,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'airblade/vim-rooter'
     Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-fugitive'
 call plug#end()
