@@ -21,7 +21,7 @@ set linebreak
 set iskeyword+=-
 
 "Disable autocomment on line change
-set formatoptions-=cro
+au FileType * set fo-=c fo-=r fo-=o
 
 "Highlight current line
 set cursorline
