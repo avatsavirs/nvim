@@ -12,5 +12,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'airblade/vim-rooter'
     Plug 'tpope/vim-abolish'
     Plug 'rust-lang/rust.vim'
-    " Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
 call plug#end()
