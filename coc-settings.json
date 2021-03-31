@@ -3,7 +3,7 @@
   "explorer.quitOnOpen": true,
   "explorer.git.showIgnored": false,
   "explorer.file.showHiddenFiles": true,
-  //"explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableNerdfont": true,
   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "html", "graphql", "json", "cpp", "json"],
   "suggest.noselect": false,
   "clangd.path": "/home/kartik/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
