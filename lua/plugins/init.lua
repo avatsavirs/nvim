@@ -56,6 +56,13 @@ return require('packer').startup({
       end
     });
     use('b3nj5m1n/kommentary');
+    use ({
+      'nvim-telescope/telescope.nvim',
+      requires = {'nvim-lua/plenary.nvim'},
+      config = function()
+        require('plugins.telescope');
+      end
+    });
   end,
   config = {
     display = {
