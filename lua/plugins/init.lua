@@ -1,8 +1,14 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup({
-  function()
+  function(use)
     use('wbthomason/packer.nvim');
+    use({
+      'neovim/nvim-lspconfig',
+      config = function()
+        require('plugins.nvim-lspconfig');
+      end
+    });
     use({
       'nvim-treesitter/nvim-treesitter',
       config = function()
@@ -12,7 +18,7 @@ return require('packer').startup({
     });
     use({
       'kyazdani42/nvim-tree.lua',
-      config = function() 
+      config = function()
         require('plugins.nvim-tree');
       end,
       requires = {'kyazdani42/nvim-web-devicons'}
@@ -44,7 +50,7 @@ return require('packer').startup({
     });
     use('tpope/vim-surround');
     use({
-      'windwp/nvim-autopairs',  
+      'windwp/nvim-autopairs',
       config = function()
         require('plugins.nvim-autopairs');
       end
