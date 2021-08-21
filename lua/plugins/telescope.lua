@@ -6,7 +6,15 @@ map('n', '<C-b><C-b>', ':Telescope buffers<CR>');
 
 require('telescope').setup({
   defaults = {
-    path_display = {'tail'},
+    path_display = function (_, path)
+      local path_len = string.len(path);
+      if path_len > 80 then
+        local turncated_path = string.sub(path, -80);
+        return '...' .. turncated_path;
+      else
+        return path;
+      end
+    end,
     prompt_prefix = "  ",
     selection_caret = " ",
     mappings = {
