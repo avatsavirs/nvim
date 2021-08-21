@@ -10,6 +10,12 @@ return require('packer').startup({
       end
     });
     use({
+      'hrsh7th/nvim-compe',
+      config = function()
+        require('plugins.nvim-compe');
+      end
+    });
+    use({
       'nvim-treesitter/nvim-treesitter',
       config = function()
         require('plugins.nvim-treesitter');
