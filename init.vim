@@ -8,3 +8,6 @@ source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/indentLint.vim
 source $HOME/.config/nvim/plug-config/loupe.vim
 source $HOME/.config/nvim/plug-config/rust.vim
+source $HOME/.config/nvim/plug-config/fugitive.vim
+
+command Q qa

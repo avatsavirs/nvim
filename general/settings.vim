@@ -1,6 +1,6 @@
 "theme
-colorscheme gruvbox
-
+set termguicolors
+colorscheme nord
 "Support 256 colors
 set t_Co=256
 
