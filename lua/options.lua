@@ -22,6 +22,7 @@ local options = {
   signcolumn = 'yes', -- Always show sign column
   iskeyword = {value = '-', mode = 'append'}, -- Consider hello-world as a single word
   showmode = false, -- Don't show current mode in statusline
+  hidden = true,
 }
 
 for key, value in pairs(options) do
