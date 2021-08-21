@@ -75,6 +75,12 @@ return require('packer').startup({
         require('plugins.telescope');
       end
     });
+    use({
+      'mhartington/formatter.nvim',
+      config = function ()
+        require('plugins.formatter');
+      end
+    });
   end,
   config = {
     display = {
