@@ -81,6 +81,12 @@ return require('packer').startup({
         require('plugins.formatter');
       end
     });
+    use({
+      'wincent/loupe',
+      config = function ()
+        require('plugins.loupe');
+      end
+    })
   end,
   config = {
     display = {
