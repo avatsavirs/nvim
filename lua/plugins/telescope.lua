@@ -8,9 +8,9 @@ require('telescope').setup({
   defaults = {
     path_display = function (_, path)
       local path_len = string.len(path);
-      if path_len > 80 then
-        local turncated_path = string.sub(path, -80);
-        return '...' .. turncated_path;
+      if path_len > 163 then
+        local turncated_path = string.sub(path, -163);
+        return '…' .. turncated_path;
       else
         return path;
       end
@@ -26,5 +26,7 @@ require('telescope').setup({
         ["<C-c>"] = 'close',
       },
     },
+    dynamic_preview_title = true,
+    layout_strategy = 'vertical',
   }
 });

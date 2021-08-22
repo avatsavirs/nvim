@@ -22,7 +22,7 @@ local options = {
   signcolumn = 'yes', -- Always show sign column
   iskeyword = {value = '-', mode = 'append'}, -- Consider hello-world as a single word
   showmode = false, -- Don't show current mode in statusline
-  hidden = true,
+  hidden = true, -- Hide buffer instead of closing on buffer change
 }
 
 for key, value in pairs(options) do
