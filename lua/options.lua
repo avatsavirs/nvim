@@ -23,6 +23,7 @@ local options = {
   iskeyword = {value = '-', mode = 'append'}, -- Consider hello-world as a single word
   showmode = false, -- Don't show current mode in statusline
   hidden = true, -- Hide buffer instead of closing on buffer change
+  autoread = true, -- Update vim if a file changes from outside of vim
 }
 
 for key, value in pairs(options) do
