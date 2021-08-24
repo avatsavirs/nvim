@@ -24,6 +24,7 @@ local options = {
   showmode = false, -- Don't show current mode in statusline
   hidden = true, -- Hide buffer instead of closing on buffer change
   autoread = true, -- Update vim if a file changes from outside of vim
+  shortmess = {value = 'I', mode = 'append'} -- Disable introduction screen on startup
 }
 
 for key, value in pairs(options) do
