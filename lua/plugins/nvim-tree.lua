@@ -1,7 +1,7 @@
 local map = require('utils').map;
 
 local nvimtree_options = {
-  width = 46,
+  width = 66,
   ignore = { ".git", "node_modules", ".cache", "language-servers" },
   auto_close = 1,
   follow = 1,
