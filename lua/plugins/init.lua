@@ -86,7 +86,8 @@ return require('packer').startup({
       config = function ()
         require('plugins.loupe');
       end
-    })
+    });
+    use('dense-analysis/ale');
   end,
   config = {
     display = {
