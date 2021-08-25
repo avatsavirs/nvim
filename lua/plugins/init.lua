@@ -30,9 +30,9 @@ return require('packer').startup({
       requires = {'kyazdani42/nvim-web-devicons'}
     });
     use({
-      'projekt0n/github-nvim-theme',
+      'folke/tokyonight.nvim',
       config = function()
-        require('plugins.github-nvim-theme');
+        require('plugins.tokyonight');
       end
     });
     use({
