@@ -1,5 +1,6 @@
 local map = require("utils").map;
 
+map("n", "<C-b>", "<Nop>");
 map("n", "<C-b>h", ":BufferPrevious<CR>", {silent = true});
 map("n", "<C-b>l", ":BufferNext<CR>", {silent = true});
 map("n", "<C-b>H", ":BufferMovePrevious<CR>", {silent = true});
