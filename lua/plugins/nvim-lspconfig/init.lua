@@ -13,6 +13,7 @@ for _, server in ipairs(servers) do
   nvim_lsp[server_config.name].setup ({
     cmd = server_config.cmd,
     settings = server_config.settings,
+    handlers = server_config.handlers,
     on_attach = function(_, buffer_number)
       local opts = { noremap = true, silent = true }
       vim.api.nvim_buf_set_keymap(buffer_number, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
