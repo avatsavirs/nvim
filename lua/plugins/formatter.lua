@@ -4,7 +4,7 @@ require('formatter').setup({
     javascriptreact = {
       function()
         return {
-          exe = "npx prettier",
+          exe = "prettier",
           args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
           stdin = true,
         }
@@ -13,7 +13,7 @@ require('formatter').setup({
     javascript = {
       function()
         return {
-          exe = "npx prettier",
+          exe = "prettier",
           args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
           stdin = true
         }
@@ -22,7 +22,7 @@ require('formatter').setup({
     typescriptreact = {
       function()
         return {
-          exe = "npx prettier",
+          exe = "prettier",
           args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
           stdin = true
         }
@@ -31,7 +31,7 @@ require('formatter').setup({
     typescript = {
       function()
         return {
-          exe = "npx prettier",
+          exe = "prettier",
           args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
           stdin = true
         }
