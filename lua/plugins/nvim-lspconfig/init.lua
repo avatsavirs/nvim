@@ -8,14 +8,16 @@ local on_attach = function(client, buffer_number)
   require('plugins.nvim-lspconfig.lsp_diagnostic_symbols_config').setup();
   require('plugins.nvim-lspconfig.auto_formatting').setup(client);
 
-  if client.name == 'typescript' then
+  -- TODO: check if this plugin is required.
+  --[[ if client.name == 'typescript' then
     require('nvim-lsp-ts-utils').setup({});
-  end
+  end ]]
 end
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
+    underline = true,
     virtual_text = false, -- Disables virtual text
     signs = true,
     update_in_insert = false,
