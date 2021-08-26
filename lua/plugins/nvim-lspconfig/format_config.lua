@@ -3,6 +3,8 @@ local eslint = {
   lintIgnoreExitCode = false,
   lintStdin = true,
   lintFormats = { '%f:%l:%c: %m' },
+  formatCommand = 'eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}',
+  formatStdin = true,
 }
 
 local prettier = {
