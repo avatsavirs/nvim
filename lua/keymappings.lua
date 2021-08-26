@@ -10,7 +10,7 @@ map('n', 'j', 'gj'); -- Moving down on wrapped lines
 map('n', 'k', 'gk'); -- Moving up on wrapped lines
 map('v', '>', '>gv'); -- Keep block visually highlighted on >
 map('v', '<', '<gv'); -- Keep block visually highlighted on <
-map('c', '<Left>', '<Space><BS><Left>'); -- Use arrow keys to move cursor instead of moving through wildmenu in command line
-map('c', '<Right>', '<Space><BS><Right>'); -- Use arrow keys to move cursor instead of moving through wildmenu in command line
+-- map('c', '<Left>', '<Space><BS><Left>'); -- Use arrow keys to move cursor instead of moving through wildmenu in command line
+-- map('c', '<Right>', '<Space><BS><Right>'); -- Use arrow keys to move cursor instead of moving through wildmenu in command line
 map('n', '<C-j>', '<C-e>'); -- Scroll down
 map('n', '<C-k>', '<C-y>'); -- Scroll up
