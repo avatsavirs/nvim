@@ -1,3 +1,5 @@
+local nvim_lsp = require('lspconfig')
+
 local eslint = {
   lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
   lintIgnoreExitCode = false,
@@ -28,4 +30,9 @@ local format_config = {
   yaml = { prettier },
 }
 
-return format_config;
+return {
+  init_options = { documentFormatting = true, codeAction = true },
+  root_dir = nvim_lsp.util.root_pattern({ '.git/' }),
+  filetypes = vim.tbl_keys(format_config),
+  settings = { languages = format_config },
+}
