@@ -33,7 +33,7 @@ local server_configs = {
   },
   efm = {
     init_options = { documentFormatting = true, codeAction = true },
-    root_dir = nvim_lsp.util.root_pattern({ '.git/', '.' }),
+    root_dir = nvim_lsp.util.root_pattern({ '.git/' }),
     filetypes = vim.tbl_keys(format_config),
     settings = { languages = format_config },
   },
