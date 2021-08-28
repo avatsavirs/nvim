@@ -2,7 +2,7 @@ local map = require('utils').map;
 
 local nvimtree_options = {
   width = 66,
-  ignore = { ".git", "node_modules", ".cache", "language-servers" },
+  ignore = { ".git", "node_modules", ".cache", "language-servers", ".undo_history" },
   auto_close = 1,
   follow = 1,
   hide_dotfiles = 0,
@@ -46,6 +46,4 @@ vim.g.nvim_tree_bindings = {
   { key = "{", cb = tree_cb("prev_sibling") },
 }
 
-map('n', '<Leader>e', ':NvimTreeToggle<CR>', {silent = true})
---[[ vim.cmd 'highlight NvimTreeFolderName guifg=blue'
-vim.cmd 'highlight NvimTreeOpenedFolderName guifg=blue gui=bold,underline' ]]
+map('n', '<Leader>e', ':NvimTreeToggle<CR>');
