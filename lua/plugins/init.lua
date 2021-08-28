@@ -13,12 +13,12 @@ return require('packer').startup({
     use({
       'hrsh7th/nvim-compe', -- for autocomplete
       config = [[ require('plugins.nvim-compe') ]],
-      after = "nvim-lspconfig"
+      after = 'nvim-lspconfig'
     });
     use({
       'nvim-treesitter/nvim-treesitter', -- AST parser
       config = [[ require('plugins.nvim-treesitter') ]],
-      run = ":TSUpdate"
+      run = ':TSUpdate'
     });
     use ({
       'nvim-telescope/telescope.nvim', -- Search
@@ -51,6 +51,7 @@ return require('packer').startup({
     use({
       'windwp/nvim-autopairs', -- Autocomplete quotes/brackers
       config = [[ require('plugins.nvim-autopairs') ]],
+      after = 'nvim-compe'
     });
     use({
       'windwp/nvim-ts-autotag', -- Autocomplete html tags
