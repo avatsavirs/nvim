@@ -10,13 +10,7 @@ return require('packer').startup({
       end,
       requires = {
         { 'kabouzeid/nvim-lspinstall', module = 'lspinstall' },
-        { 'glepnir/lspsaga.nvim', module = 'lspsaga' },
-        { 'ray-x/lsp_signature.nvim', module = 'lsp_signature' },
-        {
-          'jose-elias-alvarez/nvim-lsp-ts-utils',
-          module = 'nvim-lsp-ts-utils',
-        },
-      },
+      }
     });
     use({
       'hrsh7th/nvim-compe',
@@ -30,6 +24,13 @@ return require('packer').startup({
         require('plugins.nvim-treesitter');
       end,
       run = ":TSUpdate"
+    });
+    use ({
+      'nvim-telescope/telescope.nvim',
+      requires = {'nvim-lua/plenary.nvim'},
+      config = function()
+        require('plugins.telescope');
+      end
     });
     use({
       'kyazdani42/nvim-tree.lua',
@@ -77,13 +78,6 @@ return require('packer').startup({
       end
     });
     use('b3nj5m1n/kommentary');
-    use ({
-      'nvim-telescope/telescope.nvim',
-      requires = {'nvim-lua/plenary.nvim'},
-      config = function()
-        require('plugins.telescope');
-      end
-    });
     use({
       'wincent/loupe',
       config = function ()
