@@ -1,93 +1,70 @@
-vim.cmd [[packadd packer.nvim]]
+vim.cmd([[ packadd packer.nvim ]]);
 
 return require('packer').startup({
   function(use)
-    use('wbthomason/packer.nvim');
+    use('wbthomason/packer.nvim'); -- packer manages itself
     use({
-      'neovim/nvim-lspconfig',
-      config = function()
-        require('plugins.nvim-lspconfig');
-      end,
+      'neovim/nvim-lspconfig', -- configure nvim native lsp
+      config = [[ require('plugins.nvim-lspconfig') ]];
       requires = {
-        { 'kabouzeid/nvim-lspinstall', module = 'lspinstall' },
+        { 'kabouzeid/nvim-lspinstall', module = 'lspinstall' }, -- easily install language servers
       }
     });
     use({
-      'hrsh7th/nvim-compe',
-      config = function()
-        require('plugins.nvim-compe');
-      end
+      'hrsh7th/nvim-compe', -- for autocomplete
+      config = [[ require('plugins.nvim-compe') ]];
     });
     use({
-      'nvim-treesitter/nvim-treesitter',
-      config = function()
-        require('plugins.nvim-treesitter');
-      end,
+      'nvim-treesitter/nvim-treesitter', -- AST parser
+      config = [[ require('plugins.nvim-treesitter') ]];
       run = ":TSUpdate"
     });
     use ({
-      'nvim-telescope/telescope.nvim',
-      requires = {'nvim-lua/plenary.nvim'},
-      config = function()
-        require('plugins.telescope');
-      end
+      'nvim-telescope/telescope.nvim', -- Search
+      requires = {'nvim-lua/plenary.nvim'}, -- Utility functions
+      config = [[ require('plugins.telescope') ]];
     });
     use({
-      'kyazdani42/nvim-tree.lua',
-      config = function()
-        require('plugins.nvim-tree');
-      end,
-      requires = {'kyazdani42/nvim-web-devicons'}
+      'kyazdani42/nvim-tree.lua', -- File Explorer
+      config = [[ require('plugins.nvim-tree') ]];
+      requires = {'kyazdani42/nvim-web-devicons'} -- Unicode support for filetype icons
     });
     use({
-      'folke/tokyonight.nvim',
-      config = function()
-        require('plugins.tokyonight');
-      end
+      'folke/tokyonight.nvim', -- Theme
+      config = [[ require('plugins.tokyonight') ]];
     });
     use({
-      'hoob3rt/lualine.nvim',
-      config = function()
-        require('plugins.lualine');
-      end,
-      requires = {'kyazdani42/nvim-web-devicons'},
+      'hoob3rt/lualine.nvim', -- Status line
+      config = [[ require('plugins.lualine') ]];
+      requires = {'kyazdani42/nvim-web-devicons'}, -- Unicode support
     });
     use({
-      'romgrk/barbar.nvim',
-      config = function()
-        require('plugins.barbar');
-      end
+      'romgrk/barbar.nvim', -- Tabline manager
+      config = [[ require('plugins.barbar') ]];
     });
     use({
-      'lukas-reineke/indent-blankline.nvim',
-      config = function()
-        require('plugins.indent-blankline');
-      end
+      'lukas-reineke/indent-blankline.nvim', -- Show indentlines
+      config = [[ require('plugins.indent-blankline') ]];
     });
-    use('tpope/vim-surround');
+    use('tpope/vim-surround'); -- Extend vim functions for brackets/tags/quotes realted operations
     use({
-      'windwp/nvim-autopairs',
-      config = function()
-        require('plugins.nvim-autopairs');
-      end
+      'windwp/nvim-autopairs', -- Autocomplete quotes/brackers
+      config = [[ require('plugins.nvim-autopairs') ]];
     });
     use({
-      'windwp/nvim-ts-autotag',
-      config = function()
-        require('plugins.nvim-ts-autotag')
-      end
+      'windwp/nvim-ts-autotag', -- Autocomplete html tags
+      ft={'html', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
+      config = [[ require('plugins.nvim-ts-autotag') ]];
     });
-    use('b3nj5m1n/kommentary');
+    use('b3nj5m1n/kommentary'); -- Code comments
     use({
-      'wincent/loupe',
-      config = function ()
-        require('plugins.loupe');
-      end
+      'wincent/loupe', -- Better searching
+      config = [[ require('plugins.loupe') ]];
     });
   end,
   config = {
     display = {
-      open_fn = require('packer.util').float,
+      open_fn = require('packer.util').float, -- Open packer window in floating window
     }
   }
 });
