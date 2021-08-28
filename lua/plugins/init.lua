@@ -7,7 +7,16 @@ return require('packer').startup({
       'neovim/nvim-lspconfig',
       config = function()
         require('plugins.nvim-lspconfig');
-      end
+      end,
+      requires = {
+        { 'kabouzeid/nvim-lspinstall', module = 'lspinstall' },
+        { 'glepnir/lspsaga.nvim', module = 'lspsaga' },
+        { 'ray-x/lsp_signature.nvim', module = 'lsp_signature' },
+        {
+          'jose-elias-alvarez/nvim-lsp-ts-utils',
+          module = 'nvim-lsp-ts-utils',
+        },
+      },
     });
     use({
       'hrsh7th/nvim-compe',
@@ -76,18 +85,11 @@ return require('packer').startup({
       end
     });
     use({
-      'mhartington/formatter.nvim',
-      config = function ()
-        require('plugins.formatter');
-      end
-    });
-    use({
       'wincent/loupe',
       config = function ()
         require('plugins.loupe');
       end
     });
-    use('dense-analysis/ale');
   end,
   config = {
     display = {
