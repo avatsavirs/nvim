@@ -11,9 +11,14 @@ return require('packer').startup({
       }
     });
     use({
-      'hrsh7th/nvim-compe', -- for autocomplete
-      config = [[ require('plugins.nvim-compe') ]],
-      after = 'nvim-lspconfig'
+      "hrsh7th/nvim-cmp",
+      config = [[ require('plugins.nvim-cmp') ]], -- For autocompletion
+      requires = {
+        "hrsh7th/cmp-nvim-lsp", -- For lsp completion
+        "hrsh7th/vim-vsnip", -- nvim-cmp requires a snippet engine is required for completion
+        "hrsh7th/cmp-buffer", -- For buffer completion
+        "hrsh7th/cmp-path", -- For path completion
+      }
     });
     use({
       'nvim-treesitter/nvim-treesitter', -- AST parser
@@ -51,7 +56,7 @@ return require('packer').startup({
     use({
       'windwp/nvim-autopairs', -- Autocomplete quotes/brackers
       config = [[ require('plugins.nvim-autopairs') ]],
-      after = 'nvim-compe'
+      after = 'nvim-cmp'
     });
     use({
       'windwp/nvim-ts-autotag', -- Autocomplete html tags
