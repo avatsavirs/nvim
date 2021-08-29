@@ -3,6 +3,9 @@ local custom_select_next = require('plugins.nvim-cmp.custom_select_next');
 local set_custom_completion_kinds = require('plugins.nvim-cmp.set_custom_completion_kinds');
 
 cmp.setup({
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
   mapping = {
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
     ['<Tab>'] = custom_select_next,
@@ -17,7 +20,6 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'vsnip' }
   },
   snippet = {
     expand = function(args)
