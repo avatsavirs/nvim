@@ -1,2 +1,3 @@
-/undohistory
-/autoload/plugged
+/.undo_history/
+/plugin/
+/language-servers/
