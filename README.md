@@ -41,7 +41,9 @@ Leader: Spacebar
 | normal | Control + k     | Scroll up                     |
 | normal | Control + j     | Scroll down                   |
 
-## Plugins used
+## Plugins
+
+### Installed plugins list
 
 - [packer.nvim](https://github.com/wbthomason/packer.nvim)(Plugin manager)
 
@@ -89,6 +91,18 @@ Leader: Spacebar
 
 - [vim-vsnip](https://github.com/hrsh7th/vim-vsnip)(Launch lazygit in a floating window inside neovim)
 
+### Add more plugins
+
+The plugins are managed using [packer.nvim](https://github.com/wbthomason/packer.nvim).
+To add a plugin:
+
+```lua
+  use({
+    '<plugin github path>',
+    config = [[ require('<your plugin config file path>') ]], -- Add config file in /lua/plugins/<file_name> and import it here
+  });
+```
+
 ## Colorscheme
 
 - [Tokyonight](https://github.com/folke/tokyonight.nvim) - Night mode
@@ -103,6 +117,7 @@ Leader: Spacebar
 - json
 - lua
 - efm (For linting and auto-formatting)
+- python
   More language servers can be installed using `nvim-lspinstall`'s `:LspInstall <server_name>`
 
 ## Treesitter
@@ -122,3 +137,4 @@ Leader: Spacebar
 - tsx
 - typescript
 - yaml
+- python
