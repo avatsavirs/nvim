@@ -6,7 +6,7 @@ map("n", "<C-b>l", ":BufferNext<CR>"); -- Move to next buffer
 map("n", "<C-b>H", ":BufferMovePrevious<CR>"); -- Move current buffer back in the tabline
 map("n", "<C-b>L", ":BufferMoveNext<CR>"); -- Move current buffer forward in the tabline
 map("n", "<C-b>q", ":BufferClose<CR>"); -- Close buffer
-map("n", "<C-b>o", ":BufferCloseAllButCurrent<CR>"); -- Close all buffers except the current buffer
+map("n", "<C-b>o", "<C-w>o:BufferCloseAllButCurrent<CR>"); -- Close all buffers except the current buffer
 map("n", "<C-b>1", ":BufferGoto 1<CR>"); -- Go to nth buffer
 map("n", "<C-b>2", ":BufferGoto 2<CR>");
 map("n", "<C-b>3", ":BufferGoto 3<CR>");
