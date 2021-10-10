@@ -35,7 +35,19 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback;
 nvim_tree.setup({
   auto_close = false,
   open_on_tab = false,
-  lsp_diagnostics = true,
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "" ,
+    }
+  },
+  hijack_cursor = true,
+  update_focused_file = {
+    enable = true,
+  },
   view = {
     width = 65,
     mappings = {
