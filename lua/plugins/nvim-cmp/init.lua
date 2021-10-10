@@ -1,32 +1,37 @@
 local cmp = require('cmp');
-local custom_select_next = require('plugins.nvim-cmp.custom_select_next');
 local set_custom_completion_kinds = require('plugins.nvim-cmp.set_custom_completion_kinds');
+local custom_tab_handler = require('plugins.nvim-cmp.custom_tab_handler');
 
 cmp.setup({
   completion = {
-    completeopt = 'menu,menuone,noinsert'
-  },
-  mapping = {
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<Tab>'] = custom_select_next,
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    })
+    -- For auto-selecting the first item in the menu
+    completeopt = 'menu,menuone,noinsert',
   },
   sources = {
+    -- List of all the sources to be used by nvim-cmp
+    -- See the requires list for nvim-cmp in plugins/init.lua
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'path' },
   },
   snippet = {
+    -- Completion for snippets
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body);
     end,
   },
+  -- Formatting completion menu
   formatting = {
     format = set_custom_completion_kinds,
+  },
+  -- Custom keybindings
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<Tab>'] = custom_tab_handler,
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
   }
 });

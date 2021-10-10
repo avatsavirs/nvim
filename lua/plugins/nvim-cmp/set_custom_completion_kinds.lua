@@ -1,4 +1,4 @@
-local cmp_kinds = {
+local cmp_kinds_map = {
   Text = '   (Text) ',
   Method = '   (Method)',
   Function = '   (Function)',
@@ -27,6 +27,6 @@ local cmp_kinds = {
 };
 
 return function (_, vim_item)
-  vim_item.kind = cmp_kinds[vim_item.kind];
+  vim_item.kind = cmp_kinds_map[vim_item.kind];
   return vim_item;
 end
