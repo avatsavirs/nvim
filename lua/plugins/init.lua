@@ -15,9 +15,9 @@ return require('packer').startup({
       config = [[ require('plugins.nvim-cmp') ]], -- For autocompletion
       requires = {
         "hrsh7th/cmp-nvim-lsp", -- For lsp completion
-        "hrsh7th/vim-vsnip", -- nvim-cmp requires a snippet engine is required for completion
         "hrsh7th/cmp-buffer", -- For buffer completion
         "hrsh7th/cmp-path", -- For path completion
+        "hrsh7th/vim-vsnip", -- nvim-cmp requires a snippet engine is required for completion
       }
     });
     use({
