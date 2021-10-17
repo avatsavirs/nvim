@@ -10,8 +10,11 @@ local eslint = {
 }
 
 local prettier = {
-  formatCommand = 'prettier --stdin-filepath ${INPUT}',
+  formatCommand = 'prettierd  "${INPUT}"',
   formatStdin = true,
+  env = {
+    string.format('PRETTIERD_DEFAULT_CONFIG=%s', vim.fn.expand('~/.config/nvim/utils/linter-config/.prettierrc.json')),
+  },
 }
 
 local stylua = { formatCommand = 'stylua -s -', formatStdin = true }

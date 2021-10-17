@@ -7,7 +7,7 @@ return require('packer').startup({
       'neovim/nvim-lspconfig', -- configure nvim native lsp
       config = [[ require('plugins.nvim-lspconfig') ]],
       requires = {
-        { 'kabouzeid/nvim-lspinstall', module = 'lspinstall' }, -- easily install language servers
+        { 'williamboman/nvim-lsp-installer' }, -- easily install language servers
       }
     });
     use({

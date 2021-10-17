@@ -1,5 +1,4 @@
-local nvim_lsp = require('lspconfig')
-local lspinstall = require('lspinstall')
+local lsp_installer = require("nvim-lsp-installer")
 local on_attach = require('plugins.nvim-lspconfig.on_attach')
 local server_configs = require('plugins.nvim-lspconfig.server_configs');
 
@@ -13,22 +12,9 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   }
 )
 
-local function getLspCapabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities();
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities);
-  return capabilities;
-end
-
--- Setup servers
-local function setup_servers()
-  lspinstall.setup();
-  local installed_servers = lspinstall.installed_servers();
-  for _, server in pairs(installed_servers) do
-    local server_config = server_configs[server] or { root_dir = nvim_lsp.util.root_pattern({ '.git/', '.' }) };
-    server_config.on_attach = on_attach;
-    server_configs.capabilities = getLspCapabilities();
-    nvim_lsp[server].setup(server_config);
-  end
-end
-
-setup_servers()
+lsp_installer.on_server_ready(function(server)
+    local opts = server_configs[server.name] or {};
+    opts.on_attach = on_attach;
+    server:setup(opts);
+    vim.cmd [[ do User LspAttachBuffers ]];
+end);
