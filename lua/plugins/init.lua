@@ -17,7 +17,7 @@ return require('packer').startup({
         "hrsh7th/cmp-nvim-lsp", -- For lsp completion
         "hrsh7th/cmp-buffer", -- For buffer completion
         "hrsh7th/cmp-path", -- For path completion
-        "hrsh7th/vim-vsnip", -- nvim-cmp requires a snippet engine is required for completion
+        "L3MON4D3/LuaSnip", -- nvim-cmp requires a snippet engine is required for completion
       }
     });
     use({
