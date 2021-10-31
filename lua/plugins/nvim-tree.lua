@@ -2,8 +2,6 @@ local nvim_tree = require'nvim-tree'
 local map = require('utils').map;
 
 local nvimtree_options = {
-  ignore = { ".git", "node_modules", ".cache", "language-servers", ".undo_history" },
-  hide_dotfiles = 0,
   git_hl = 0,
   highlight_opened_files = 1,
   root_folder_modifier = ":t",
@@ -61,6 +59,10 @@ nvim_tree.setup({
         { key = "{", cb = tree_cb("prev_sibling") },
       }
     }
+  },
+  filters = {
+    dotfiles = false,
+    custom = { ".git", "node_modules", ".cache", "language-servers", ".undo_history" }
   }
 })
 
