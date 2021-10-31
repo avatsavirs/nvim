@@ -40,7 +40,7 @@ return require('packer').startup({
       config = [[ require('plugins.tokyonight') ]],
     });
     use({
-      'hoob3rt/lualine.nvim', -- Status line
+      'nvim-lualine/lualine.nvim', -- Status line
       config = [[ require('plugins.lualine') ]],
       requires = {'kyazdani42/nvim-web-devicons'}, -- Unicode support
     });
