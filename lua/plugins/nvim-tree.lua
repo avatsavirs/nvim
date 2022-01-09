@@ -31,8 +31,8 @@ end
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback;
 
 nvim_tree.setup({
-  open_on_tab = false,
   auto_close = true,
+  hijack_cursor = true,
   diagnostics = {
     enable = true,
     icons = {
@@ -42,7 +42,6 @@ nvim_tree.setup({
       error = "" ,
     }
   },
-  hijack_cursor = true,
   update_focused_file = {
     enable = true,
   },
