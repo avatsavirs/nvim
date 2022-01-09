@@ -6,27 +6,11 @@ map('n', '<C-b><C-b>', ':Telescope buffers preview=true<CR>'); -- buffer search
 
 require('telescope').setup({
   defaults = {
+    path_display={"truncate"},
     sorting_strategy="ascending", -- Best match is at top
     layout_strategy = 'vertical', -- Vertical layout for telescope window
-    layout_config = {
-      vertical = {
-        height = 0.9,
-        width = 0.98,
-      }
-    },
     -- Disable file preview in setting and pass preview=true as an option with Telescope command
     preview=false,
-    -- Turncate filepath if out of bounds
-    -- TODO: Get width of telescope window dynamically
-    path_display = function (_, path)
-      local path_len = string.len(path);
-      if path_len > 180 then
-        local turncated_path = string.sub(path, -180);
-        return '…' .. turncated_path;
-      else
-        return path;
-      end
-    end,
     prompt_prefix = "  ",
     selection_caret = " ",
     mappings = {
