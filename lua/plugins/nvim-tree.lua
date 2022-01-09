@@ -6,11 +6,6 @@ local nvimtree_options = {
   highlight_opened_files = 1,
   root_folder_modifier = ":t",
   indent_markers = 1,
-  show_icons = {
-    git = 0,
-    folders = 1,
-    files = 1
-  },
   icons = {
     default = "",
     symlink = "",
