@@ -31,8 +31,8 @@ end
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback;
 
 nvim_tree.setup({
-  auto_close = false,
   open_on_tab = false,
+  auto_close = true,
   diagnostics = {
     enable = true,
     icons = {
