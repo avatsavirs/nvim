@@ -3,13 +3,6 @@ local map = require('utils').map;
 map('n', '<C-p>', ':Telescope find_files<CR>'); -- file search
 map('n', '<C-g>', ':Telescope live_grep<CR>'); -- project wide grep
 map('n', '<C-b><C-b>', ':Telescope buffers<CR>'); -- buffer search
---[[
-  Plan to use telescope file_browser instead of nvim tree in future
-  See: Telescope file_browser
-  Needs more configuration:
-    * Use relative path from root instead of absolute paths
-    * Add commands for common opeartions like create, delete, rename, copy, move etc.
-]]
 
 require('telescope').setup({
   defaults = {
