@@ -42,6 +42,9 @@ nvim_tree.setup({
       error = "" ,
     }
   },
+  git = {
+    enable = false,
+  },
   update_focused_file = {
     enable = true,
   },
