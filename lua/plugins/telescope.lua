@@ -1,11 +1,13 @@
 local map = require('utils').map;
 
-map('n', '<C-p>', ':Telescope find_files<CR>'); -- file search
-map('n', '<C-g>', ':Telescope live_grep<CR>'); -- project wide grep
-map('n', '<C-b><C-b>', ':Telescope buffers<CR>'); -- buffer search
+map('n', '<C-p>', ':Telescope find_files preview=true<CR>'); -- file search
+map('n', '<C-g>', ':Telescope live_grep preview=true<CR>'); -- project wide grep
+map('n', '<C-b><C-b>', ':Telescope buffers preview=true<CR>'); -- buffer search
 
 require('telescope').setup({
   defaults = {
+    -- Disable file preview in setting and pass preview=true as an option with Telescope command
+    preview=false,
     -- Turncate filepath if out of bounds
     -- TODO: Get width of telescope window dynamically
     path_display = function (_, path)
