@@ -45,13 +45,9 @@ Leader: Spacebar
 
 ### Installed plugins list
 
-- [packer.nvim](https://github.com/wbthomason/packer.nvim)(Plugin manager)
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip)(Snippet Engine for Neovim written in Lua)
 
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)(Configure nvim native lsp)
-
-- [nvim-lspinstall](https://github.com/kabouzeid/nvim-lspinstall)(Easily install language servers)
-
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)(For autocomplete)
+- [barbar.nvim](https://github.com/romgrk/barbar.nvim)(Tabline manager)
 
 - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)(nvim-cmp buffer source)
 
@@ -59,37 +55,41 @@ Leader: Spacebar
 
 - [cmp-path](https://github.com/hrsh7th/cmp-path)(nvim-cmp path source)
 
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)(AST parser)
-
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)(Search)
-
-- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)(Utility functions)
-
-- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)(File Explorer)
-
-- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)(Icons)
-
-- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)(Theme)
-
-- [lualine.nvim](https://github.com/hoob3rt/lualine.nvim)(Status line)
-
-- [barbar.nvim](https://github.com/romgrk/barbar.nvim)(Tabline manager)
-
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)(Show indentlines)
-
-- [vim-surround](https://github.com/tpope/vim-surround)(Extend vim functions for brackets/tags/quotes realted operations)
-
-- [nvim-autopairs](https://github.com/windwp/nvim-autopairs)(Autocomplete quotes/brackers)
-
-- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)(Autocomplete html tags)
 
 - [kommentary](https://github.com/b3nj5m1n/kommentary)(Code comments)
 
-- [loupe](https://github.com/wincent/loupe)(Better searching operations)
-
 - [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)(Launch lazygit in a floating window inside neovim)
 
-- [vim-vsnip](https://github.com/hrsh7th/vim-vsnip)(Launch lazygit in a floating window inside neovim)
+- [loupe](https://github.com/wincent/loupe)(Better searching operations)
+
+- [lualine.nvim](https://github.com/hoob3rt/lualine.nvim)(Status line)
+
+- [nvim-autopairs](https://github.com/windwp/nvim-autopairs)(Autocomplete quotes/brackers)
+
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)(For autocomplete)
+
+- [nvim-lsp-install](https://github.com/kabouzeid/nvim-lspinstall)(Easily install language servers)
+
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)(Configure nvim native lsp)
+
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)(File Explorer)
+
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)(AST parser)
+
+- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)(Autocomplete html tags)
+
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)(Icons)
+
+- [packer.nvim](https://github.com/wbthomason/packer.nvim)(Plugin manager)
+
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)(Utility functions)
+
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)(Search)
+
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)(Theme)
+
+- [vim-surround](https://github.com/tpope/vim-surround)(Extend vim functions for brackets/tags/quotes realted operations)
 
 ### Add more plugins
 
@@ -111,13 +111,17 @@ To add a plugin:
 
 ### Installed language servers
 
-- typescript
-- html
-- css
-- json
-- lua
+- bashls
+- clangd
+- cssls
 - efm (For linting and auto-formatting)
-- python
+- emmet_ls
+- graphql
+- html
+- typescript
+- pyright
+- sumenko_lua
+- tsserver
   More language servers can be installed using `nvim-lspinstall`'s `:LspInstall <server_name>`
 
 ## Treesitter
