@@ -1,4 +1,4 @@
-# Neovim 0.5 Config
+# Neovim 0.6 Config
 
 ## Options
 
@@ -128,13 +128,17 @@ To add a plugin:
 - c
 - cpp
 - css
+- dockerfile
+- dot
 - graphql
 - html
 - javascript
 - jsdoc
 - json
 - lua
+- markdown
+- python
+- regex
 - tsx
 - typescript
 - yaml
-- python
