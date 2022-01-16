@@ -24,4 +24,8 @@ function utils.set_option(option_name, option_value)
 	end
 end
 
+utils.join_paths = function(...)
+  return table.concat({ ... }, '/')
+end
+
 return utils;

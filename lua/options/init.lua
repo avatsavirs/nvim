@@ -1,4 +1,4 @@
-local set_option = require('utils').set_option;
+local utils = require('utils');
 local CONSTANTS = require('constants');
 
 local options = {
@@ -15,7 +15,7 @@ local options = {
   swapfile = false, -- No swap files
   writebackup = false, -- No backup
   undofile = true, -- Preserve undohistory in a file so it is can be used after quiting vim
-  undodir = CONSTANTS.CONFIG_BASE_PATH .. '/.undo_history', -- Location of undofiles
+  undodir = utils.join_paths(CONSTANTS.CONFIG_BASE_PATH, '.undo_history'), -- Location of undofiles
   splitright = true, -- Open vertical split on right by default
   ignorecase = true, -- Ignore case while searching
   smartcase = true, --  Override the 'ignorecase' option if the search pattern contains upper case characters.
@@ -30,5 +30,5 @@ local options = {
 }
 
 for key, value in pairs(options) do
-  set_option(key, value);
+  utils.set_option(key, value);
 end
