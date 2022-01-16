@@ -1,4 +1,5 @@
 local set_option = require('utils').set_option;
+local CONSTANTS = require('constants');
 
 local options = {
   termguicolors = true, -- Enables 24-bit RGB color in the Terminal UI.
@@ -14,7 +15,7 @@ local options = {
   swapfile = false, -- No swap files
   writebackup = false, -- No backup
   undofile = true, -- Preserve undohistory in a file so it is can be used after quiting vim
-  undodir = vim.fn.stdpath('config') .. '/.undo_history', -- Location of undofiles
+  undodir = CONSTANTS.CONFIG_BASE_PATH .. '/.undo_history', -- Location of undofiles
   splitright = true, -- Open vertical split on right by default
   ignorecase = true, -- Ignore case while searching
   smartcase = true, --  Override the 'ignorecase' option if the search pattern contains upper case characters.
@@ -24,7 +25,8 @@ local options = {
   showmode = false, -- Don't show current mode in statusline
   hidden = true, -- Hide buffer instead of closing on buffer change
   autoread = true, -- Update vim if a file changes from outside of vim
-  shortmess = {value = 'I', mode = 'append'} -- Disable introduction screen on startup
+  shortmess = {value = 'I', mode = 'append'}, -- Disable introduction screen on startup
+  packpath = CONSTANTS.CONFIG_BASE_PATH, -- Set path for plugins
 }
 
 for key, value in pairs(options) do
