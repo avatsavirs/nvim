@@ -26,7 +26,7 @@ local options = {
   hidden = true, -- Hide buffer instead of closing on buffer change
   autoread = true, -- Update vim if a file changes from outside of vim
   shortmess = {value = 'I', mode = 'append'}, -- Disable introduction screen on startup
-  packpath = CONSTANTS.CONFIG_BASE_PATH, -- Set path for plugins
+  packpath = utils.join_paths(CONSTANTS.CONFIG_BASE_PATH, '.plugins'), -- Set path for plugins
 }
 
 for key, value in pairs(options) do

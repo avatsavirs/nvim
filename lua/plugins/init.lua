@@ -1,3 +1,6 @@
+local utils = require('utils');
+local CONSTANTS = require('constants');
+
 vim.cmd([[ packadd packer.nvim ]]);
 
 return require('packer').startup({
@@ -76,6 +79,8 @@ return require('packer').startup({
   config = {
     display = {
       open_fn = require('packer.util').float, -- Open packer window in floating window
-    }
+      title = 'Plugins',
+    },
+   package_root = utils.join_paths(CONSTANTS.CONFIG_BASE_PATH, '.plugins', 'pack'),
   }
 });
