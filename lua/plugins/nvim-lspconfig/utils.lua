@@ -1,4 +1,5 @@
 local utils = require('utils');
+local CONSTANTS  = require('plugins.nvim-lspconfig.constants');
 
 local M = {};
 
@@ -19,13 +20,9 @@ local format_on_save = function (server)
 end
 
 local set_lsp_keybindings = function (buffer_number)
-  utils.map_in_buffer(buffer_number, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
-  utils.map_in_buffer(buffer_number, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
-  utils.map_in_buffer(buffer_number, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  utils.map_in_buffer(buffer_number, 'n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  utils.map_in_buffer(buffer_number, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-  utils.map_in_buffer(buffer_number, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-  utils.map_in_buffer(buffer_number, 'n', ']]', '<cmd>lua vim.diagnostic.open_float()<CR>')
+  for _, value in ipairs(CONSTANTS.KEY_MAPPINGS) do
+    utils.map_in_buffer(buffer_number, value.mode, value.key_combination, value.command);
+  end
 end
 
 local set_diagnostic_symbols = function ()
