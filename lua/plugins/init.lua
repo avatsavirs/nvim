@@ -17,9 +17,10 @@ return require('packer').startup({
       "hrsh7th/nvim-cmp",
       config = [[ require('plugins.nvim-cmp') ]], -- For autocompletion
       requires = {
-        "hrsh7th/cmp-nvim-lsp", -- For lsp completion
-        "hrsh7th/cmp-buffer", -- For buffer completion
-        "hrsh7th/cmp-path", -- For path completion
+        "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source lsp completion
+        "hrsh7th/cmp-buffer", -- nvim-cmp source for buffer completion
+        "hrsh7th/cmp-path", -- nvim-cmp source for path completion
+        "saadparwaiz1/cmp_luasnip", -- nvim-cmp source for lua snip
         "L3MON4D3/LuaSnip", -- nvim-cmp requires a snippet engine is required for completion
       }
     });
