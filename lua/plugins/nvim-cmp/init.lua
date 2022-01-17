@@ -4,7 +4,7 @@ local utils = require('plugins.nvim-cmp.utils');
 cmp.setup({
   completion = {
     -- For auto-selecting the first item in the menu
-    completeopt = 'menu,menuone,noinsert',
+    completeopt = 'menu,menuone,noselect',
   },
   sources = {
     -- List of all the sources to be used by nvim-cmp
@@ -34,5 +34,8 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<Tab>'] = utils.custom_tab_key_handler,
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+  },
+  experimental = {
+    ghost_text = true,
   }
 });
