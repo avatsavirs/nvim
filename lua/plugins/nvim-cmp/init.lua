@@ -1,7 +1,4 @@
 local cmp = require('cmp');
-local luasnip = require('luasnip');
--- local set_custom_completion_kinds = require('plugins.nvim-cmp.set_custom_completion_kinds');
-local custom_tab_handler = require('plugins.nvim-cmp.custom_tab_handler');
 local utils = require('plugins.nvim-cmp.utils');
 
 cmp.setup({
@@ -18,9 +15,7 @@ cmp.setup({
     { name = 'buffer', keyword_length = 3},
   },
   snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body);
-    end,
+    expand = utils.luasnip_expand,
   },
   -- Formatting completion menu
   formatting = {
@@ -32,8 +27,12 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     }),
+    ['<C-j>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<Tab>'] = custom_tab_handler,
+    ['<Tab>'] = utils.custom_tab_key_handler,
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
   }
 });
