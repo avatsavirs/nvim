@@ -29,7 +29,7 @@ M.KEY_MAPPINGS = {
   { -- Close buffer
     mode = "n",
     key_combination = "<C-b>q",
-    command = ":BufferClose<CR>"
+    command = ":BetterBufferClose<CR>"
   },
   { -- Close all buffers except the current buffer
     mode = "n",
