@@ -26,15 +26,9 @@ local set_lsp_keybindings = function (buffer_number)
 end
 
 local set_diagnostic_symbols = function ()
-  local diagnostic_signs = {
-    Error = '',
-    Warning = '',
-    Hint = '',
-    Information = '',
-  }
-  for type, icon in pairs(diagnostic_signs) do
-    local hl = 'LspDiagnosticsSign' .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+  for _, diagnostics_sign in pairs(CONSTANTS.DIAGNOSTICS_SIGNS) do
+    local hl = 'LspDiagnosticsSign' .. diagnostics_sign.type
+    vim.fn.sign_define(hl, { text = diagnostics_sign.icon, texthl = hl, numhl = '' })
   end
 end
 

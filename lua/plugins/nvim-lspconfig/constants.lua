@@ -38,4 +38,23 @@ M.KEY_MAPPINGS = {
   }
 }
 
+M.DIAGNOSTICS_SIGNS = {
+  {
+    type = 'Error',
+    icon = '',
+  },
+  {
+    type = 'Warning',
+    icon = '',
+  },
+  {
+    type = 'Hint',
+    icon = '',
+  },
+  {
+    type = 'Information',
+    icon =  '',
+  }
+}
+
 return M;
