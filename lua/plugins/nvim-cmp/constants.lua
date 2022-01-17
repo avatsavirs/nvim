@@ -1,4 +1,6 @@
-local cmp_kinds_map = {
+local M = {};
+
+M.COMPLETION_KINDS_SYMBOLS = {
   Text = '   (Text) ',
   Method = '   (Method)',
   Function = '   (Function)',
@@ -24,9 +26,6 @@ local cmp_kinds_map = {
   Event = '   (Event)',
   Operator = '   (Operator)',
   TypeParameter = '   (TypeParameter)',
-};
+}
 
-return function (_, vim_item)
-  vim_item.kind = cmp_kinds_map[vim_item.kind];
-  return vim_item;
-end
+return M;

@@ -1,7 +1,8 @@
 local cmp = require('cmp');
 local luasnip = require('luasnip');
-local set_custom_completion_kinds = require('plugins.nvim-cmp.set_custom_completion_kinds');
+-- local set_custom_completion_kinds = require('plugins.nvim-cmp.set_custom_completion_kinds');
 local custom_tab_handler = require('plugins.nvim-cmp.custom_tab_handler');
+local utils = require('plugins.nvim-cmp.utils');
 
 cmp.setup({
   completion = {
@@ -14,7 +15,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
-    { name = 'buffer', keyword_length = 5},
+    { name = 'buffer', keyword_length = 3},
   },
   snippet = {
     expand = function(args)
@@ -23,7 +24,7 @@ cmp.setup({
   },
   -- Formatting completion menu
   formatting = {
-    format = set_custom_completion_kinds,
+    format = utils.set_custom_completion_kind,
   },
   -- Custom keybindings
   mapping = {
