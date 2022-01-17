@@ -1,5 +1,5 @@
 local lsp_installer = require("nvim-lsp-installer")
-local on_attach = require('plugins.nvim-lspconfig.on_attach')
+local utils = require('plugins.nvim-lspconfig.utils')
 local server_configs = require('plugins.nvim-lspconfig.server_configs');
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
@@ -14,7 +14,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 
 lsp_installer.on_server_ready(function(server)
     local opts = server_configs[server.name] or {};
-    opts.on_attach = on_attach;
+    opts.on_attach = utils.handle_attach;
     server:setup(opts);
     vim.cmd [[ do User LspAttachBuffers ]];
 end);
