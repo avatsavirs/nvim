@@ -9,13 +9,9 @@ end
 
 local get_listed_buffers = function ()
   local all_bufs = vim.api.nvim_list_bufs();
-  local listed_buffers = {};
-  for _,value in ipairs(all_bufs) do
-    if(vim.fn.buflisted(value) == 1) then
-      table.insert(listed_buffers, value)
-    end
-  end;
-  return listed_buffers;
+  return vim.tbl_filter(function (buffer)
+    return vim.fn.buflisted(buffer) == 1;
+  end, all_bufs);
 end
 
 M.betterBufferClose = function ()
