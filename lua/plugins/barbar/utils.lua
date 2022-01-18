@@ -2,13 +2,9 @@ local M = {};
 
 M.betterCloseAllButCurrent = function ()
   if(vim.fn.winnr('$') > 1) then
-    vim.api.nvim_exec([[
-      execute "norm \<C-w>o"
-    ]], true);
+    vim.api.nvim_input("<C-w>o");
   end
-  vim.api.nvim_exec([[
-    execute "BufferCloseAllButCurrent"
-  ]], true);
+  vim.api.nvim_command("BufferCloseAllButCurrent");
 end
 
 local get_listed_buffers = function ()
@@ -23,13 +19,9 @@ local get_listed_buffers = function ()
 end
 
 M.betterBufferClose = function ()
-  vim.api.nvim_exec([[
-    execute "BufferClose"
-  ]], true);
+  vim.api.nvim_command("BufferClose");
   if(#get_listed_buffers() == 1) then
-    vim.api.nvim_exec([[
-      execute "norm \<C-w>o"
-    ]], true);
+    vim.api.nvim_input("<C-w>o");
   end
 end
 
