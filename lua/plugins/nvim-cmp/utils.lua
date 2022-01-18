@@ -12,8 +12,8 @@ end
 
 
 local has_words_before = function()
-  local line_no, col_no = unpack(vim.api.nvim_win_get_cursor(0))
-  local line_text = vim.api.nvim_buf_get_lines(0, line_no - 1, line_no, true)[1];
+  local col_no = vim.api.nvim_win_get_cursor(0)[2];
+  local line_text = vim.api.nvim_get_current_line();
   local char_before_cursor = line_text:sub(col_no, col_no);
   return col_no ~= 0 and char_before_cursor:match("%s") == nil
 end
