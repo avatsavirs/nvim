@@ -21,16 +21,10 @@ function utils.map_in_buffer(buffer_number, mode, key_combination, command, opti
 end
 
 function utils.set_option(option_name, option_value)
-	local mode = 'set';
-	local value = option_value;
-	if (type(option_value)=='table') then
-		mode = option_value.mode;
-		value = option_value.value;
-	end
-	if (mode=='set') then
-		vim.opt[option_name] = value;
-	elseif(mode=='append') then
-		vim.opt[option_name]:append(value);
+	if (type(option_value)=='function') then
+		vim.opt[option_name] = option_value(vim.opt[option_name]._value);
+  else
+		vim.opt[option_name] = option_value;
 	end
 end
 

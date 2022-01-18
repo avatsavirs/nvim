@@ -21,11 +21,15 @@ local options = {
   smartcase = true, --  Override the 'ignorecase' option if the search pattern contains upper case characters.
   confirm = true, -- Show confirmation prompt on closing unsaved buffer
   signcolumn = 'yes', -- Always show sign column
-  iskeyword = {value = '-', mode = 'append'}, -- Consider hello-world as a single word
+  iskeyword = function (current_value)
+    return table.concat({current_value, '-'}, ','); -- Consider hello-world as a single word
+  end,
   showmode = false, -- Don't show current mode in statusline
   hidden = true, -- Hide buffer instead of closing on buffer change
   autoread = true, -- Update vim if a file changes from outside of vim
-  shortmess = {value = 'I', mode = 'append'}, -- Disable introduction screen on startup
+  shortmess = function (current_value)
+    return current_value .. 'I'; -- Disable introduction screen on startup
+  end,
   packpath = utils.join_paths(CONSTANTS.CONFIG_BASE_PATH, '.plugins'), -- Set path for plugins
 }
 
