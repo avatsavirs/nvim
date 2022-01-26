@@ -10,7 +10,6 @@ require('telescope').setup({
     sorting_strategy="ascending", -- Best match is at top
     layout_strategy = 'vertical', -- Vertical layout for telescope window
     -- Disable file preview in setting and pass preview=true as an option with Telescope command
-    preview=false,
     prompt_prefix = "  ",
     selection_caret = " ",
     mappings = {
@@ -25,14 +24,7 @@ require('telescope').setup({
     dynamic_preview_title = true, -- Show selected file name on top of file preview window
   },
   pickers = {
-    find_files = {
-      preview = true,
-    },
-    live_grep = {
-      preview = true,
-    },
     buffers = {
-      preview = true,
       mappings = {
         i = {
           ['<C-d>'] = 'delete_buffer'
