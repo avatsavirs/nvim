@@ -32,8 +32,6 @@ cmp.setup({
       select = true,
     }),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<Tab>'] = utils.custom_tab_key_handler,
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
   },
   experimental = {
     ghost_text = true,
