@@ -13,7 +13,7 @@ local format_on_save = function (server)
     vim.cmd([[
       augroup Format
         au! * <buffer>
-        au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync({}, 1000)
+        au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(vim.empty_dict(), 400)
       augroup END
     ]])
   end
