@@ -7,6 +7,7 @@ M.PARSER_INSTALL_LIST = {
   "css",
   "dockerfile",
   "dot",
+  "go",
   "graphql",
   "html",
   "javascript",
