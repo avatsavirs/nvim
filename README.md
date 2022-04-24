@@ -1,4 +1,4 @@
-# Neovim 0.6 Config
+# Neovim 0.7 Config
 
 ## Options
 
