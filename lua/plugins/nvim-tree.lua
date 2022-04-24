@@ -5,7 +5,6 @@ local nvimtree_options = {
   git_hl = 0,
   highlight_opened_files = 1,
   root_folder_modifier = ":t",
-  indent_markers = 1,
   icons = {
     default = "",
     symlink = "",
@@ -26,8 +25,12 @@ end
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback;
 
 nvim_tree.setup({
-  auto_close = true,
   hijack_cursor = true,
+  renderer = {
+    indent_markers = {
+      enable = true
+    }
+  },
   diagnostics = {
     enable = true,
     icons = {
