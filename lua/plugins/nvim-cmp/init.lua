@@ -32,6 +32,8 @@ cmp.setup({
       select = true,
     }),
     ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item()
   },
   experimental = {
     ghost_text = true,
