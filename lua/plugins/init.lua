@@ -6,6 +6,10 @@ vim.cmd([[ packadd packer.nvim ]]);
 return require('packer').startup({
   function(use)
     use('wbthomason/packer.nvim'); -- packer manages itself
+    use({ 
+      "jose-elias-alvarez/null-ls.nvim", -- formatter and linter
+      config = [[ require('plugins.null-ls') ]],
+    });
     use({
       'neovim/nvim-lspconfig', -- configure nvim native lsp
       config = [[ require('plugins.nvim-lspconfig') ]],
