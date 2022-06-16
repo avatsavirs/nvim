@@ -1,34 +1,29 @@
 local nvim_tree = require'nvim-tree'
 local map = require('utils').map;
 
-local nvimtree_options = {
-  git_hl = 0,
-  highlight_opened_files = 1,
-  root_folder_modifier = ":t",
-  icons = {
-    default = "",
-    symlink = "",
-    folder = {
-      default = "",
-      open = "",
-      empty = "",
-      empty_open = "",
-      symlink = "",
-    },
-  },
-}
-
-for opt, val in pairs(nvimtree_options) do
-  vim.g["nvim_tree_" .. opt] = val
-end
-
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback;
 
 nvim_tree.setup({
   hijack_cursor = true,
   renderer = {
+    highlight_opened_files = "icons",
+    highlight_git = false,
+    root_folder_modifier = ":t",
     indent_markers = {
       enable = true
+    },
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        },
+      }
     }
   },
   diagnostics = {
@@ -59,6 +54,7 @@ nvim_tree.setup({
         { key = "dd", cb = tree_cb("remove") },
         { key = "}", cb = tree_cb("next_sibling") },
         { key = "{", cb = tree_cb("prev_sibling") },
+        { key = "<C-k>", cb = '<C-y>' },
       }
     }
   },
