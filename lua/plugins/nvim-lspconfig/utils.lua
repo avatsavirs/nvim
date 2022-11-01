@@ -6,10 +6,10 @@ local M = {};
 local format_on_save = function (server)
   -- So that the only server with format capabilities is efm
   if server.name ~= 'efm' then
-    server.resolved_capabilities.document_formatting = false
+    server.server_capabilities.document_formatting = false
   end
 
-  if server.resolved_capabilities.document_formatting then
+  if server.server_capabilities.document_formatting then
     vim.cmd([[
       augroup Format
         au! * <buffer>
