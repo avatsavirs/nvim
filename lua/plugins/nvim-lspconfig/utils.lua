@@ -6,14 +6,14 @@ local M = {};
 local format_on_save = function (server)
   -- So that the only server with format capabilities is efm
   if server.name ~= 'efm' then
-    server.server_capabilities.document_formatting = false
+    server.server_capabilities.documentFormattingProvider = false
   end
 
-  if server.server_capabilities.document_formatting then
+  if server.server_capabilities.documentFormattingProvider then
     vim.cmd([[
       augroup Format
         au! * <buffer>
-        au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(vim.empty_dict(), 400)
+        au BufWritePre <buffer> lua vim.lsp.buf.format(vim.empty_dict(), 400)
       augroup END
     ]])
   end
