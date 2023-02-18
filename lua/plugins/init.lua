@@ -6,6 +6,7 @@ vim.cmd([[ packadd packer.nvim ]]);
 return require('packer').startup({
   function(use)
     use('wbthomason/packer.nvim'); -- packer manages itself
+    use('github/copilot.vim'); -- github copilot
     use({
       'neovim/nvim-lspconfig', -- configure nvim native lsp
       config = [[ require('plugins.nvim-lspconfig') ]],
