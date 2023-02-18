@@ -24,6 +24,9 @@ require('telescope').setup({
     dynamic_preview_title = true, -- Show selected file name on top of file preview window
   },
   pickers = {
+    find_files = {
+      hidden = true,
+    },
     buffers = {
       mappings = {
         i = {
