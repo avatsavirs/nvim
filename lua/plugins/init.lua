@@ -8,11 +8,11 @@ return require('packer').startup({
     use('wbthomason/packer.nvim'); -- packer manages itself
     use('github/copilot.vim'); -- github copilot
     use({
-      'williamboman/mason-lspconfig.nvim', -- configure nvim native lsp
+      'williamboman/mason-lspconfig.nvim', -- easily install language servers
       config = [[ require('plugins.nvim-lspconfig') ]],
       requires = {
         { 'williamboman/mason.nvim' },
-        { 'neovim/nvim-lspconfig' }, -- easily install language servers
+        { 'neovim/nvim-lspconfig' }, -- configure nvim native lsp
       }
     });
     use({
