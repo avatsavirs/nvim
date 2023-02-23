@@ -1,6 +1,6 @@
 local M = {};
 
-M.KEY_MAPPINGS = {
+M.LSP_KEY_MAPPINGS = {
   {
     mode = 'n',
     key_combination = 'gd',
@@ -38,13 +38,15 @@ M.KEY_MAPPINGS = {
   }
 }
 
+-- NOTE: run lua print(vim.inspect(vim.diagnostic.severity))
+-- to get the severity levels
 M.DIAGNOSTICS_SIGNS = {
   {
     type = 'Error',
     icon = '',
   },
   {
-    type = 'Warning',
+    type = 'Warn',
     icon = '',
   },
   {
@@ -52,9 +54,32 @@ M.DIAGNOSTICS_SIGNS = {
     icon = '',
   },
   {
-    type = 'Information',
-    icon =  '',
+    type = 'Info',
+    icon = '',
   }
+}
+
+M.MASON_PACKAGES_SIGNS = {
+  package_installed = "✓",
+  package_pending = "➜",
+  package_uninstalled = "✗"
+}
+
+M.MASON_KEY_MAPPINGS = {
+  uninstall_package = "dd",
+}
+
+M.LANGUAGE_SERVERS_LIST = {
+  'lua_ls',
+  'rust_analyzer',
+  'tsserver',
+  'gopls',
+  'graphql',
+  'html',
+  'pyright',
+  'solc',
+  'yamlls',
+  'clangd',
 }
 
 return M;

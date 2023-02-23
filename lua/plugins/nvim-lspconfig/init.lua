@@ -1,8 +1,7 @@
-local nvim_lsp = require('lspconfig')
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local utils = require('plugins.nvim-lspconfig.utils')
-local server_configs = require('plugins.nvim-lspconfig.server_configs');
+local CONSTANTS = require('plugins.nvim-lspconfig.constants')
 
 --[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -16,37 +15,16 @@ local server_configs = require('plugins.nvim-lspconfig.server_configs');
  ]]
 mason.setup({
   ui = {
-    icons = {
-      package_installed = "✓",
-      package_pending = "➜",
-      package_uninstalled = "✗"
-    }
+    icons = CONSTANTS.MASON_PACKAGES_SIGNS
   },
-  keymaps = {
-    uninstall_package = "dd",
-  }
+  keymaps = CONSTANTS.MASON_KEY_MAPPINGS
 });
 
 mason_lspconfig.setup({
-  ensure_installed = {
-    'lua_ls',
-    'rust_analyzer',
-    'tsserver',
-    'gopls',
-    'graphql',
-    'html',
-    'pyright',
-    'solc',
-    'yamlls',
-    'clangd',
-  },
+  ensure_installed = CONSTANTS.LANGUAGE_SERVERS_LIST,
   automatic_installation = true,
 });
 
 mason_lspconfig.setup_handlers({
-  function(server_name)
-    local opts = server_configs[server_name] or {};
-    opts.on_attach = utils.handle_attach;
-    nvim_lsp[server_name].setup(opts);
-  end
+  utils.setup_handlers
 })
