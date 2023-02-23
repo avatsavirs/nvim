@@ -16,6 +16,14 @@ return require('packer').startup({
       }
     });
     use({
+      'jose-elias-alvarez/null-ls.nvim', -- provides a framework for aggregating and running linters, formatters, and other tools as sources of diagnostics (aka lints) and code actions.
+      requires = {
+        { 'nvim-lua/plenary.nvim' }, -- Utility functions
+        { 'neovim/nvim-lspconfig' }, -- configure nvim native lsp
+      },
+      config = [[ require('plugins.null-ls') ]],
+    })
+    use({
       "hrsh7th/nvim-cmp",
       config = [[ require('plugins.nvim-cmp') ]], -- For autocompletion
       requires = {
@@ -31,15 +39,15 @@ return require('packer').startup({
       config = [[ require('plugins.nvim-treesitter') ]],
       run = ':TSUpdate'
     });
-    use ({
+    use({
       'nvim-telescope/telescope.nvim', -- Search
-      requires = {'nvim-lua/plenary.nvim'}, -- Utility functions
+      requires = { 'nvim-lua/plenary.nvim' }, -- Utility functions
       config = [[ require('plugins.telescope') ]],
     });
     use({
       'kyazdani42/nvim-tree.lua', -- File Explorer
       config = [[ require('plugins.nvim-tree') ]],
-      requires = {'kyazdani42/nvim-web-devicons'} -- Unicode support for filetype icons
+      requires = { 'kyazdani42/nvim-web-devicons' } -- Unicode support for filetype icons
     });
     use({
       'folke/tokyonight.nvim', -- Theme
@@ -48,7 +56,7 @@ return require('packer').startup({
     use({
       'nvim-lualine/lualine.nvim', -- Status line
       config = [[ require('plugins.lualine') ]],
-      requires = {'kyazdani42/nvim-web-devicons'}, -- Unicode support
+      requires = { 'kyazdani42/nvim-web-devicons' }, -- Unicode support
     });
     use({
       'romgrk/barbar.nvim', -- Tabline manager
@@ -66,7 +74,7 @@ return require('packer').startup({
     });
     use({
       'windwp/nvim-ts-autotag', -- Autocomplete html tags
-      ft={'html', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
+      ft = { 'html', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
       config = [[ require('plugins.nvim-ts-autotag') ]],
     });
     use('b3nj5m1n/kommentary'); -- Code comments
@@ -84,6 +92,6 @@ return require('packer').startup({
       open_fn = require('packer.util').float, -- Open packer window in floating window
       title = 'Plugins',
     },
-   package_root = utils.join_paths(CONSTANTS.CONFIG_BASE_PATH, '.plugins', 'pack'),
+    package_root = utils.join_paths(CONSTANTS.CONFIG_BASE_PATH, '.plugins', 'pack'),
   }
 });

@@ -5,17 +5,6 @@ local server_configs = require('plugins.nvim-lspconfig.server_configs');
 
 local M              = {};
 
-local function format_on_save(server)
-  if server.server_capabilities.documentFormattingProvider then
-    vim.cmd([[
-      augroup Format
-        au! * <buffer>
-        au BufWritePre <buffer> lua vim.lsp.buf.format(vim.empty_dict(), 400)
-      augroup END
-    ]])
-  end
-end
-
 local function set_lsp_keybindings(buffer_number)
   for _, value in ipairs(CONSTANTS.LSP_KEY_MAPPINGS) do
     utils.map_in_buffer(buffer_number, value.mode, value.key_combination, value.command);
@@ -34,10 +23,9 @@ local function set_diagnostic_symbols()
   end
 end
 
-local function handle_attach(server, buffer_number)
+local function handle_attach(_, buffer_number)
   set_lsp_keybindings(buffer_number);
   set_diagnostic_symbols();
-  format_on_save(server);
 end
 
 M.setup_handlers = function(server_name)
