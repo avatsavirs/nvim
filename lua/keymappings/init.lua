@@ -12,3 +12,5 @@ map('v', '>', '>gv'); -- Keep block visually highlighted on >
 map('v', '<', '<gv'); -- Keep block visually highlighted on <
 map('n', '<C-j>', '<C-e>'); -- Scroll down
 map('n', '<C-k>', '<C-y>'); -- Scroll up
+map('n', 'k', '(v:count > 2 ? "m\'" .. v:count : "") .. "k"', { expr = true }) -- Convert numbered up motion to jump
+map('n', 'j', '(v:count > 2 ? "m\'" .. v:count : "") .. "j"', { expr = true }) -- Convert numbered down motion to jump
