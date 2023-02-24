@@ -1,5 +1,5 @@
-local null_ls = require("null-ls")
-local CONSTANTS = require("plugins.null-ls.constants");
+local null_ls = require('null-ls')
+local CONSTANTS = require('plugins.null-ls.constants');
 
 local function get_sources()
   local result = {};
@@ -12,18 +12,25 @@ local function get_sources()
 end
 
 local function format_on_save(server, buffer_number)
-  local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-  local is_formatting_supported = server.supports_method("textDocument/formatting");
-  if(is_formatting_supported) then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer_number });
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = buffer_number,
-      callback = function()
-        vim.lsp.buf.format({ buffer_number = buffer_number });
-      end,
-    })
+  local augroup = vim.api.nvim_create_augroup('LspFormatting', vim.empty_dict());
+  local is_formatting_supported = server.supports_method('textDocument/formatting');
+  print(vim.inspect(server), is_formatting_supported)
+  if not is_formatting_supported then
+    return;
   end
+  vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer_number });
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = augroup,
+    buffer = buffer_number,
+    callback = function()
+      vim.lsp.buf.format({
+        buffer_number = buffer_number,
+        filter = function(client)
+          return client.name == 'null-ls' -- only allow null-ls to format
+        end
+      });
+    end,
+  })
 end
 
 local function on_attach(server, buffer_number)
