@@ -30,20 +30,12 @@ end
 
 -- This is a workaround for the issue where the LSP server returns multiple
 -- definitions for a symbol. This function will pick the first definition
--- that has a targetUri and jump to that location.
+-- and jump to that location.
 local function handle_go_to_definition(_, results)
-  local first_definition = nil
-  for _, definition in ipairs(results) do
-    if definition.targetUri then
-      first_definition = definition
-      break
-    end
+  if not results or vim.tbl_isempty(results) then
+    return;
   end
-  if not first_definition then
-    vim.notify("No definition found", vim.log.levels.WARN)
-    return
-  end
-  vim.lsp.util.jump_to_location(first_definition)
+  return vim.lsp.util.jump_to_location(results[1], {});
 end
 
 M.setup_handlers = function(server_name)
