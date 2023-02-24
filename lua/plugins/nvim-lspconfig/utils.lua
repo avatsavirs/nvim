@@ -28,9 +28,43 @@ local function handle_attach(_, buffer_number)
   set_diagnostic_symbols();
 end
 
+-- This is a workaround for the issue where the LSP server returns multiple
+-- definitions for a symbol. This function will pick the first definition
+-- that has a targetUri and jump to that location.
+local function handle_go_to_definition(_, results)
+  local first_definition = nil
+  for _, definition in ipairs(results) do
+    if definition.targetUri then
+      first_definition = definition
+      break
+    end
+  end
+  if not first_definition then
+    vim.notify("No definition found", vim.log.levels.WARN)
+    return
+  end
+  vim.lsp.util.jump_to_location(first_definition)
+end
+
 M.setup_handlers = function(server_name)
   local opts = server_configs[server_name] or vim.empty_dict();
   opts.on_attach = handle_attach;
+  opts.handlers = vim.tbl_extend(
+    'keep',
+    opts.handlers or {},
+    {
+      ["textDocument/definition"] = handle_go_to_definition,
+      ["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics,
+        {
+          underline = true,
+          virtual_text = false, -- Disables virtual text
+          signs = true,
+          update_in_insert = false,
+        }
+      ),
+    }
+  );
   nvim_lsp[server_name].setup(opts);
 end
 

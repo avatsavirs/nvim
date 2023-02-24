@@ -3,16 +3,6 @@ local mason_lspconfig = require("mason-lspconfig")
 local utils = require('plugins.nvim-lspconfig.utils')
 local CONSTANTS = require('plugins.nvim-lspconfig.constants')
 
---[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    underline = true,
-    virtual_text = false, -- Disables virtual text
-    signs = true,
-    update_in_insert = false,
-  }
-)
- ]]
 mason.setup({
   ui = {
     icons = CONSTANTS.MASON_PACKAGES_SIGNS
