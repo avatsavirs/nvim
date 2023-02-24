@@ -8,6 +8,11 @@ M.LSP_KEY_MAPPINGS = {
   },
   {
     mode = 'n',
+    key_combination = 'gD',
+    command = '<Cmd>lua vim.lsp.buf.declaration()<CR>'
+  },
+  {
+    mode = 'n',
     key_combination = 'K',
     command = '<Cmd>lua vim.lsp.buf.hover()<CR>'
   },

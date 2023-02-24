@@ -1,7 +1,7 @@
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
-local utils = require('plugins.nvim-lspconfig.utils')
-local CONSTANTS = require('plugins.nvim-lspconfig.constants')
+local utils = require('plugins.mason-lspconfig.utils')
+local CONSTANTS = require('plugins.mason-lspconfig.constants')
 
 mason.setup({
   ui = {

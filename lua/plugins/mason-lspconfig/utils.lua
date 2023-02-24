@@ -1,7 +1,7 @@
 local nvim_lsp       = require('lspconfig')
 local utils          = require('utils');
-local CONSTANTS      = require('plugins.nvim-lspconfig.constants');
-local server_configs = require('plugins.nvim-lspconfig.server_configs');
+local CONSTANTS      = require('plugins.mason-lspconfig.constants');
+local server_configs = require('plugins.mason-lspconfig.server_configs');
 
 local M              = {};
 

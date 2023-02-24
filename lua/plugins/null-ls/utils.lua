@@ -14,7 +14,6 @@ end
 local function format_on_save(server, buffer_number)
   local augroup = vim.api.nvim_create_augroup('LspFormatting', vim.empty_dict());
   local is_formatting_supported = server.supports_method('textDocument/formatting');
-  print(vim.inspect(server), is_formatting_supported)
   if not is_formatting_supported then
     return;
   end

@@ -9,7 +9,7 @@ return require('packer').startup({
     use('github/copilot.vim'); -- github copilot
     use({
       'williamboman/mason-lspconfig.nvim', -- easily install language servers
-      config = [[ require('plugins.nvim-lspconfig') ]],
+      config = [[ require('plugins.mason-lspconfig') ]],
       requires = {
         { 'williamboman/mason.nvim' },
         { 'neovim/nvim-lspconfig' }, -- configure nvim native lsp
