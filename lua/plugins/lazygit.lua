@@ -1,3 +1,3 @@
-local map = require('utils').map;
+local map = require('utils').map
 
-map('n', '<Leader>gg', '<cmd> :LazyGit<CR>');
+map('n', '<Leader>gg', '<cmd> :LazyGit<CR>')
