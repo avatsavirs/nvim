@@ -35,4 +35,15 @@ function utils.join_paths(...)
   return table.concat({ ... }, '/')
 end
 
+function utils.create_auto_command(options)
+  local events = options.events;
+  local callback = options.callback;
+  local group_name = options.group_name;
+  local augroup = vim.api.nvim_create_augroup(group_name, vim.empty_dict());
+  vim.api.nvim_create_autocmd(events, {
+    group = augroup,
+    callback = callback,
+  });
+end
+
 return utils;
