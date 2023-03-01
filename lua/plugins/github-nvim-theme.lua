@@ -1,4 +1,4 @@
 require('github-theme').setup({
-    functionStyle = 'italic',
-    themeStyle = 'dimmed',
+  functionStyle = 'italic',
+  themeStyle = 'dimmed',
 })
