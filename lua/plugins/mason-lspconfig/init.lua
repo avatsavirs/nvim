@@ -18,3 +18,19 @@ mason_lspconfig.setup({
 mason_lspconfig.setup_handlers({
   utils.setup_handlers,
 })
+
+vim.diagnostic.config({
+  underline = false,
+  signs = true,
+  update_in_insert = false,
+  virtual_text = false,
+  float = {
+    source = false,
+    border = 'rounded',
+    format = function(_diagnostic)
+      return string.format('%s(%s):\n%s\n', _diagnostic.source, _diagnostic.code, _diagnostic.message)
+    end,
+    suffix = '',
+  },
+  severity_sort = true,
+})

@@ -40,15 +40,10 @@ end
 M.setup_handlers = function(server_name)
   local opts = server_configs[server_name] or vim.empty_dict()
   opts.on_attach = handle_attach
-  opts.handlers = vim.tbl_extend('keep', opts.handlers or {}, {
+  local default_handlers = {
     ['textDocument/definition'] = handle_go_to_definition,
-    ['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = true,
-      virtual_text = false, -- Disables virtual text
-      signs = true,
-      update_in_insert = false,
-    }),
-  })
+  }
+  opts.handlers = vim.tbl_extend('keep', opts.handlers or {}, default_handlers)
   nvim_lsp[server_name].setup(opts)
 end
 
