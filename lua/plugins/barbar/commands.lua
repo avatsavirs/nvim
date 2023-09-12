@@ -1,11 +1,16 @@
+local utils = require('plugins.barbar.utils')
 local M = {}
 
 M.initialize = function()
-  vim.cmd([[
-    command! BetterCloseAllButCurrent lua require('plugins.barbar.utils').betterCloseAllButCurrent()
-    command! BetterBufferClose lua require('plugins.barbar.utils').betterBufferClose()
-    command! ListBuffers lua require('plugins.barbar.utils').printListedBuffers()
-  ]])
+  vim.api.nvim_create_user_command('BetterCloseAllButCurrent', utils.betterCloseAllButCurrent, {
+    desc = 'Closes all buffers except the current one',
+  })
+  vim.api.nvim_create_user_command('BetterBufferClose', utils.betterBufferClose, {
+    desc = 'Closes the current buffer',
+  })
+  vim.api.nvim_create_user_command('ListBuffers', utils.printListedBuffers, {
+    desc = 'Lists all listed buffers',
+  })
 end
 
 return M
