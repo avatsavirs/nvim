@@ -1,12 +1,12 @@
 local M = {}
 
 M.betterCloseAllButCurrent = function()
+  vim.api.nvim_command('BufferCloseAllButCurrent')
   -- vim.fn.winnr returns the window number of the last window in the current tab
   -- This is same as the total number of the windows in the current tab.
   if vim.fn.winnr('$') > 1 then
     vim.api.nvim_input('<C-w>o')
   end
-  vim.api.nvim_command('BufferCloseAllButCurrent')
 end
 
 local get_listed_buffers = function()
