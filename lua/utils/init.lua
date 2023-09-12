@@ -3,7 +3,7 @@ local utils = {}
 function utils.map(mode, key_combination, command, options)
   local default_options = { noremap = true, silent = true } -- All mappings are non-recursive and silent by default
   local keymap_options = vim.tbl_extend('force', default_options, options or {}) -- merge default options with custom options args
-  vim.api.nvim_set_keymap(mode, key_combination, command, keymap_options)
+  vim.keymap.set(mode, key_combination, command, keymap_options)
 end
 
 function utils.map_in_buffer(buffer_number, mode, key_combination, command, options)
