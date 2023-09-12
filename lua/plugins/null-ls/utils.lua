@@ -11,6 +11,14 @@ local function get_sources()
   return result
 end
 
+local function format()
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.name == 'null-ls' -- only allow null-ls to format
+    end,
+  })
+end
+
 local function format_on_save(server, buffer_number)
   local is_formatting_supported = server.supports_method('textDocument/formatting')
   if not is_formatting_supported then
@@ -22,12 +30,6 @@ local function format_on_save(server, buffer_number)
     group = augroup,
     buffer = buffer_number,
     callback = function()
-      vim.lsp.buf.format({
-        buffer_number = buffer_number,
-        filter = function(client)
-          return client.name == 'null-ls' -- only allow null-ls to format
-        end,
-      })
     end,
   })
 end
@@ -39,4 +41,5 @@ end
 return {
   get_sources = get_sources,
   on_attach = on_attach,
+  format = format,
 }
