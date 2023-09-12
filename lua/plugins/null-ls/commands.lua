@@ -4,7 +4,7 @@ local M = {}
 
 M.initialize = function()
   vim.api.nvim_create_user_command('Format', utils.format, {
-    desc = 'Formats the current buffer'
+    desc = 'Formats the current buffer',
   })
 end
 
