@@ -1,8 +1,8 @@
-local blankline = require('indent_blankline')
+local blankline = require('ibl')
 
 blankline.setup({
-  char = '▏',
+  --[[ char = '▏',
   space_char = ' ',
   -- use_treesitter = true,
-  buftype_exclude = { 'nofile', 'help' },
+  buftype_exclude = { 'nofile', 'help' }, ]]
 })
