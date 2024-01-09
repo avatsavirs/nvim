@@ -40,6 +40,11 @@ return require('packer').startup({
       run = ':TSUpdate',
     })
     use({
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      after = 'nvim-treesitter',
+      requires = { 'nvim-treesitter/nvim-treesitter' },
+    })
+    use({
       'nvim-telescope/telescope.nvim', -- Search
       requires = { 'nvim-lua/plenary.nvim' }, -- Utility functions
       config = [[ require('plugins.telescope') ]],
