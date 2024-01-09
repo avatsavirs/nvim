@@ -22,6 +22,7 @@ M.PARSER_INSTALL_LIST = {
   'tsx',
   'typescript',
   'yaml',
+  'styled', -- for styled components
 }
 
 return M
