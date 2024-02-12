@@ -91,6 +91,10 @@ return require('packer').startup({
       'kdheepak/lazygit.nvim', -- Launch lazygit in a floating window inside neovim
       config = [[ require('plugins.lazygit') ]],
     })
+    use({
+      'f-person/git-blame.nvim',
+      config = [[ require('plugins.git-blame')]],
+    })
   end,
   config = {
     display = {
