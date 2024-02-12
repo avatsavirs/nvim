@@ -110,7 +110,17 @@ nvim_tree.setup({
   view = {
     number = true,
     relativenumber = true,
-    width = 65,
+    float = {
+      enable = true,
+      open_win_config = {
+        width = math.floor(vim.o.columns * 0.9),
+        height = math.floor(vim.o.lines * 0.9),
+        row = math.floor(vim.o.lines * 0.5 - vim.o.lines * 0.9 * 0.5), -- move top of the window to the vertical center of the editor and then move it up by half the height of the window
+        col = math.floor(vim.o.columns * 0.5 - vim.o.columns * 0.9 * 0.5), -- move left of the window to the horizontal center of the editor and then move it left by half the width of the window
+        relative = 'editor',
+        border = 'rounded',
+      },
+    },
   },
   filters = {
     dotfiles = false,
