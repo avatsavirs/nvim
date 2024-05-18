@@ -43,6 +43,10 @@ Leader: Spacebar
 
 ## Plugins
 
+### Install Packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.config/nvim/.plugins/pack/packer/start/packer.nvim
+
 ### Installed plugins list
 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)(Snippet Engine for Neovim written in Lua)
