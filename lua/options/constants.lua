@@ -31,5 +31,6 @@ return {
       return current_value .. 'I' -- Disable introduction screen on startup
     end,
     packpath = CONSTANTS.PACK_PATH, -- Set path for plugins
+    cmdheight=0, --set cmdheight=0
   },
 }
