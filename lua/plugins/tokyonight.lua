@@ -1,3 +1,13 @@
-vim.g.tokyonight_style = 'night'
-vim.g.tokyonight_italic_functions = true
-vim.cmd([[colorscheme tokyonight-night]])
+local tokyonight = require('tokyonight')
+
+tokyonight.setup({
+  style = "night",
+  styles={
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = { italic = true },
+  },
+  dim_inactive = true,
+})
+
+vim.cmd([[colorscheme tokyonight]])

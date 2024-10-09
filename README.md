@@ -1,4 +1,4 @@
-# Neovim 0.7 Config
+# Neovim 0.10.0 Config
 
 ## Options
 
@@ -44,8 +44,9 @@ Leader: Spacebar
 ## Plugins
 
 ### Install Packer
+
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.config/nvim/.plugins/pack/packer/start/packer.nvim
+~/.config/nvim/.plugins/pack/packer/start/packer.nvim
 
 ### Installed plugins list
 
