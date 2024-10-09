@@ -77,7 +77,7 @@ M.MASON_KEY_MAPPINGS = {
 M.LANGUAGE_SERVERS_LIST = {
   'lua_ls',
   'rust_analyzer',
-  'tsserver',
+  'ts_ls',
   'gopls',
   'graphql',
   'html',
