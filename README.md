@@ -43,11 +43,6 @@ Leader: Spacebar
 
 ## Plugins
 
-### Install Packer
-
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-~/.config/nvim/.plugins/pack/packer/start/packer.nvim
-
 ### Installed plugins list
 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)(Snippet Engine for Neovim written in Lua)
@@ -86,8 +81,6 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)(Icons)
 
-- [packer.nvim](https://github.com/wbthomason/packer.nvim)(Plugin manager)
-
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)(Utility functions)
 
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)(Search)
@@ -98,14 +91,25 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 ### Add more plugins
 
-The plugins are managed using [packer.nvim](https://github.com/wbthomason/packer.nvim).
-To add a plugin:
+The plugins are managed using [lazy.nvim](https://github.com/folke/lazy.nvim).
+To add a plugin go to lua/plugins/init.lua and go to the lazy.nvim setup function call.
+Add the new plugin to the list of plugins inside the spec field.
 
 ```lua
-  use({
-    '<plugin github path>',
-    config = [[ require('<your plugin config file path>') ]], -- Add config file in /lua/plugins/<file_name> and import it here
-  });
+local lazy = require('lazy')
+
+lazy.setup({
+    spec = {
+        ... -- Other plugins
+        {
+            'new_plugin',
+            config = function()
+                require('plugins.new_plugin') -- import the plugin configuration file if needed
+            end
+            ... -- Other configurations
+        },
+    }
+})
 ```
 
 ## Colorscheme
