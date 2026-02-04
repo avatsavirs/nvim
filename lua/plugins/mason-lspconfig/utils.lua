@@ -1,4 +1,3 @@
-local nvim_lsp = require('lspconfig')
 local utils = require('utils')
 local CONSTANTS = require('plugins.mason-lspconfig.constants')
 local server_configs = require('plugins.mason-lspconfig.server_configs')
@@ -30,21 +29,26 @@ end
 -- This is a workaround for the issue where the LSP server returns multiple
 -- definitions for a symbol. This function will pick the first definition
 -- and jump to that location.
-local function handle_go_to_definition(_, results)
-  if not results or vim.tbl_isempty(results) then
+local function handle_go_to_definition(err, results, ctx, _)
+  if err or not results or vim.tbl_isempty(results) then
     return
   end
-  return vim.lsp.util.jump_to_location(results[1], {})
+  local client = ctx and vim.lsp.get_client_by_id(ctx.client_id) or nil
+  local offset_encoding = client and client.offset_encoding or 'utf-16'
+  return vim.lsp.util.jump_to_location(results[1], offset_encoding)
 end
 
 M.setup_handlers = function(server_name)
-  local opts = server_configs[server_name] or vim.empty_dict()
+  local opts = vim.tbl_deep_extend('force', {}, server_configs[server_name] or vim.empty_dict())
   opts.on_attach = handle_attach
   local default_handlers = {
     ['textDocument/definition'] = handle_go_to_definition,
   }
   opts.handlers = vim.tbl_extend('keep', opts.handlers or {}, default_handlers)
-  nvim_lsp[server_name].setup(opts)
+  local ok, err = pcall(vim.lsp.config, server_name, opts)
+  if not ok then
+    vim.notify(('Failed to configure LSP server %s: %s'):format(server_name, err), vim.log.levels.WARN)
+  end
 end
 
 return M

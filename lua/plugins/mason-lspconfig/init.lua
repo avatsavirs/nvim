@@ -10,13 +10,13 @@ mason.setup({
   keymaps = CONSTANTS.MASON_KEY_MAPPINGS,
 })
 
+for _, server_name in ipairs(CONSTANTS.LANGUAGE_SERVERS_LIST) do
+  utils.setup_handlers(server_name)
+end
+
 mason_lspconfig.setup({
   ensure_installed = CONSTANTS.LANGUAGE_SERVERS_LIST,
-  automatic_installation = true,
-})
-
-mason_lspconfig.setup_handlers({
-  utils.setup_handlers,
+  automatic_enable = true,
 })
 
 vim.diagnostic.config({
