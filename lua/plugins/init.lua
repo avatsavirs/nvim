@@ -84,7 +84,7 @@ lazy.setup(
       },
       { "b3nj5m1n/kommentary" }, -- Code comments
       { "tpope/vim-surround" }, -- Extend vim functions for brackets/tags/quotes realted operations
-      { "github/copilot.vim" }, -- Copilot
+      -- { "github/copilot.vim" }, -- Copilot
       {
         "nvim-treesitter/nvim-treesitter",  -- AST based highlighting, folding, and more
         config = function()
