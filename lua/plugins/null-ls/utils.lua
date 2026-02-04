@@ -31,7 +31,7 @@ local function format_on_save(server, buffer_number)
     buffer = buffer_number,
     callback = function()
       vim.lsp.buf.format({
-        buffer_number = buffer_number,
+        bufnr = buffer_number,
         filter = function(client)
           return client.name == 'null-ls' -- only allow null-ls to format
         end,

@@ -111,7 +111,7 @@ lazy.setup(
         },
       },
       {
-        "jose-elias-alvarez/null-ls.nvim", -- provides a framework for aggregating and running linters, formatters, and other tools as sources of diagnostics (aka lints) and code actions.
+        "nvimtools/none-ls.nvim", -- null-ls successor for diagnostics/formatting/code actions
         config = function()
           require("plugins.null-ls")
         end,
