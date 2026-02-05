@@ -1,5 +1,6 @@
 local null_ls = require('null-ls')
 local CONSTANTS = require('plugins.null-ls.constants')
+local bigfile = require('autocommands.bigfile')
 
 local function get_sources()
   local result = {}
@@ -12,11 +13,20 @@ local function get_sources()
 end
 
 local function format()
+  local buffer_number = vim.api.nvim_get_current_buf()
+  local is_bigfile = bigfile.is_marked(buffer_number)
+
   vim.lsp.buf.format({
+    async = not is_bigfile,
+    timeout_ms = is_bigfile and 60000 or nil,
     filter = function(client)
       return client.name == 'null-ls' -- only allow null-ls to format
     end,
   })
+
+  if is_bigfile then
+    bigfile.recheck(buffer_number)
+  end
 end
 
 local function format_on_save(server, buffer_number)

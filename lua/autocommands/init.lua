@@ -13,3 +13,5 @@ vim.api.nvim_create_autocmd({ "CmdlineLeave", "CmdwinLeave", "RecordingLeave" },
     vim.opt.cmdheight = 0
   end,
 })
+
+require('autocommands.bigfile')
