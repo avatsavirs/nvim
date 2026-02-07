@@ -2,7 +2,7 @@ require('lualine').setup({
   options = {
     icons_enabled = true,
     theme = 'tokyonight-night',
-    disabled_files = {},
+    disabled_filetypes = {},
   },
   sections = {
     lualine_a = { 'mode' },
