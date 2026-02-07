@@ -78,6 +78,7 @@ M.LANGUAGE_SERVERS_LIST = {
   'lua_ls',
   'rust_analyzer',
   'ts_ls',
+  'eslint',
   'gopls',
   'graphql',
   'html',

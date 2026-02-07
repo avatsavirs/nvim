@@ -13,11 +13,8 @@ M.SOURCES = {
     'stylua',
     'prettierd',
     'gofmt',
-    'eslint_d',
   },
-  [M.SOURCE_TYPE.DIAGNOSTICS] = {
-    'eslint_d',
-  },
+  [M.SOURCE_TYPE.DIAGNOSTICS] = {},
   [M.SOURCE_TYPE.CODE_ACTIONS] = {},
   [M.SOURCE_TYPE.COMPLETION] = {},
   [M.SOURCE_TYPE.HOVER] = {},
