@@ -4,6 +4,12 @@ local server_configs = require('plugins.mason-lspconfig.server_configs')
 
 local M = {}
 
+local cmp_capabilities = {}
+local has_cmp_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+if has_cmp_lsp then
+  cmp_capabilities = cmp_nvim_lsp.default_capabilities()
+end
+
 local function set_lsp_keybindings(buffer_number)
   for _, value in ipairs(CONSTANTS.LSP_KEY_MAPPINGS) do
     utils.map_in_buffer(buffer_number, value.mode, value.key_combination, value.command)
@@ -26,6 +32,15 @@ local function handle_attach(_, buffer_number)
   set_diagnostic_symbols()
 end
 
+local function compose_on_attach(user_on_attach)
+  return function(client, buffer_number)
+    if type(user_on_attach) == 'function' then
+      pcall(user_on_attach, client, buffer_number)
+    end
+    handle_attach(client, buffer_number)
+  end
+end
+
 -- This is a workaround for the issue where the LSP server returns multiple
 -- definitions for a symbol. This function will pick the first definition
 -- and jump to that location.
@@ -40,7 +55,8 @@ end
 
 M.setup_handlers = function(server_name)
   local opts = vim.tbl_deep_extend('force', {}, server_configs[server_name] or vim.empty_dict())
-  opts.on_attach = handle_attach
+  opts.capabilities = vim.tbl_deep_extend('force', {}, cmp_capabilities, opts.capabilities or {})
+  opts.on_attach = compose_on_attach(opts.on_attach)
   local default_handlers = {
     ['textDocument/definition'] = handle_go_to_definition,
   }
