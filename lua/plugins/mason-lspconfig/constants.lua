@@ -79,6 +79,7 @@ M.LANGUAGE_SERVERS_LIST = {
   'rust_analyzer',
   'ts_ls',
   'eslint',
+  'cssls',
   'gopls',
   'graphql',
   'html',

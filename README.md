@@ -94,6 +94,7 @@ Configured LSP servers:
 - `rust_analyzer`
 - `ts_ls`
 - `eslint`
+- `cssls`
 - `gopls`
 - `graphql`
 - `html`
