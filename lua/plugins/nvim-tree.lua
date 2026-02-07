@@ -124,7 +124,7 @@ nvim_tree.setup({
   },
   filters = {
     dotfiles = false,
-    custom = { '.git', 'node_modules', '.cache', 'language-servers', '.undo_history' },
+    custom = { '%.git', 'node_modules', '.cache', 'language-servers', '.undo_history' },
   },
 })
 
