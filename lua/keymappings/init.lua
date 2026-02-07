@@ -6,7 +6,7 @@ commands.initialize()
 map('n', '<Space>', '<Nop>')
 vim.g.mapleader = ' '
 
-map('n', '<Leader>/', ':set hlsearch!<CR>') -- <Space> + / to toggle highlight.
+map('n', '<Leader>uh', ':set hlsearch!<CR>') -- <Space> + u + h to toggle highlight.
 map('n', '<Leader><Leader>', ':<BS>', { silent = false }) -- <Space><Space> to clear command line.
 map('n', '0', '^') -- 0 moves cursor to the first character in the line instead of the absolute beginning of the line.
 map('v', '>', '>gv') -- Keep block visually highlighted on >
