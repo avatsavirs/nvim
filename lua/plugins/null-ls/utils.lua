@@ -2,11 +2,31 @@ local null_ls = require('null-ls')
 local CONSTANTS = require('plugins.null-ls.constants')
 local bigfile = require('autocommands.bigfile')
 
+local warned_missing_sources = {}
+
+local function warn_missing_source(source_type, source)
+  local key = source_type .. ':' .. source
+  if warned_missing_sources[key] then
+    return
+  end
+  warned_missing_sources[key] = true
+  vim.notify(
+    ('none-ls source is not available and will be skipped: %s (%s)'):format(source, source_type),
+    vim.log.levels.WARN
+  )
+end
+
 local function get_sources()
   local result = {}
   for source_type, sources in pairs(CONSTANTS.SOURCES) do
+    local source_bucket = null_ls.builtins[source_type]
     for _, source in pairs(sources) do
-      table.insert(result, null_ls.builtins[source_type][source])
+      local source_builtin = source_bucket and source_bucket[source] or nil
+      if source_builtin then
+        table.insert(result, source_builtin)
+      else
+        warn_missing_source(source_type, source)
+      end
     end
   end
   return result
