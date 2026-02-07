@@ -1,6 +1,7 @@
 os:
   editPreset: nvim
   edit: '[ -z "$NVIM" ] && nvim {{filename}} || nvim --server "$NVIM" --remote-tab {{filename}}; [ -z "$NVIM" ] || nvim --server "$NVIM" --remote-send ":lua _G.close_lazygit_terminals()<CR>"'
+  editAtLine: '[ -z "$NVIM" ] && nvim +{{line}} {{filename}} || nvim --server "$NVIM" --remote-tab {{filename}}; [ -z "$NVIM" ] || nvim --server "$NVIM" --remote-send ":{{line}}<CR>:lua _G.close_lazygit_terminals()<CR>"'
 keybinding:
   universal:
     edit: o
