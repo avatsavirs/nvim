@@ -1,157 +1,121 @@
-# Neovim 0.10.0 Config
+# Neovim 0.11+ Config
 
-## Options
+This is a Lua-based Neovim configuration managed with `lazy.nvim`.
 
-| Option         | Value                                       | Effect                                                                                 |
-| -------------- | ------------------------------------------- | -------------------------------------------------------------------------------------- |
-| termguicolors  | true                                        | Enables 24-bit RGB color in the Terminal UI                                            |
-| number         | true                                        | Get line numbers                                                                       |
-| relativenumber | true                                        | Get relative numbers                                                                   |
-| wrap           | false                                       | Workd wrap                                                                             |
-| cursorline     | true                                        | Highlight the line cursor is on                                                        |
-| tabstop        | 2                                           | Number of spaces that a <Tab> in the file counts for.                                  |
-| shiftwidth     | 2                                           | Number of spaces to use for each step of (auto)indent.                                 |
-| expandtab      | true                                        | Convert Tabs to spaces                                                                 |
-| swapfile       | false                                       | No swap files                                                                          |
-| writebackup    | false                                       | No backup                                                                              |
-| undofile       | true                                        | Preserve undohistory in a file so it is can be used after quiting vim                  |
-| undodir        | vim.fn.stdpath('config') .. '.undo_history' | Location of undofiles                                                                  |
-| splitright     | true                                        | Open vertical split on right by default                                                |
-| ignorecase     | true                                        | Ignore case while searching                                                            |
-| smartcase      | true                                        | Override the 'ignorecase' option if the search pattern contains upper case characters. |
-| confirm        | true                                        | Show confirmation prompt on closing unsaved buffer                                     |
-| signcolumn     | 'yes'                                       | Always show sign column                                                                |
-| iskeyword      | append('-')                                 | Consider hello-world as a single word                                                  |
-| showmode       | false                                       | Don't show current mode in statusline                                                  |
-| hidden         | true                                        | Hide buffer instead of closing on buffer change                                        |
-| autoread       | true                                        | Update vim if a file changes from outside of vim                                       |
-| shortmess      | append('I')                                 | Disable introduction screen on startup                                                 |
+## Requirements
 
-## Keymappings
+- Neovim `>= 0.11`
+- Git
+- Nerd Font (recommended for icons)
 
-Leader: Spacebar
+## Core Defaults
 
-| Mode   | Keymapping      | Action                        |
-| ------ | --------------- | ----------------------------- |
-| normal | Leader + /      | Toggle hlsearch               |
-| normal | Leader + Leader | Clear command line            |
-| normal | 0               | Move to start of current line |
-| visual | >               | Indent visual block to right  |
-| visual | <               | Indent visual block to left   |
-| normal | Control + k     | Scroll up                     |
-| normal | Control + j     | Scroll down                   |
+Highlights from `lua/options/constants.lua`:
 
-## Plugins
+- UI: `termguicolors`, line numbers, relative numbers, cursorline
+- Editing: `expandtab`, `tabstop=2`, `shiftwidth=2`
+- Search: `ignorecase`, `smartcase`
+- Files: persistent undo in `~/.config/nvim/.undo_history`
+- Splits: vertical splits open to the right
+- Cmdline UI: dynamic `cmdheight` (`0` when idle, `1` while typing commands)
 
-### Installed plugins list
+## Keymaps
 
-- [LuaSnip](https://github.com/L3MON4D3/LuaSnip)(Snippet Engine for Neovim written in Lua)
+Leader key is `<Space>`.
 
-- [barbar.nvim](https://github.com/romgrk/barbar.nvim)(Tabline manager)
+- `<Leader>/`: clear search highlight (Loupe)
+- `<Leader>uh`: toggle `hlsearch`
+- `<Leader><Leader>`: clear command line
+- `<Leader>e`: toggle file tree
+- `<Leader>gg`: open LazyGit
+- `<C-p>`: Telescope file search
+- `<C-g>`: Telescope live grep
+- `<C-b><C-b>`: Telescope buffers
+- `<C-b>h` / `<C-b>l`: previous / next buffer (Barbar)
+- `<C-b>q`: close current buffer (safe close command)
 
-- [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)(nvim-cmp buffer source)
+## Plugin Stack
 
-- [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)(nvim-cmp lsp source)
+### UI and navigation
 
-- [cmp-path](https://github.com/hrsh7th/cmp-path)(nvim-cmp path source)
+- [`folke/tokyonight.nvim`](https://github.com/folke/tokyonight.nvim)
+- [`nvim-tree/nvim-tree.lua`](https://github.com/nvim-tree/nvim-tree.lua)
+- [`nvim-lualine/lualine.nvim`](https://github.com/nvim-lualine/lualine.nvim)
+- [`romgrk/barbar.nvim`](https://github.com/romgrk/barbar.nvim)
+- [`lukas-reineke/indent-blankline.nvim`](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [`nvim-tree/nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
 
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)(Show indentlines)
+### Search and workflow
 
-- [kommentary](https://github.com/b3nj5m1n/kommentary)(Code comments)
+- [`nvim-telescope/telescope.nvim`](https://github.com/nvim-telescope/telescope.nvim)
+- [`nvim-lua/plenary.nvim`](https://github.com/nvim-lua/plenary.nvim)
+- [`wincent/loupe`](https://github.com/wincent/loupe)
+- [`kdheepak/lazygit.nvim`](https://github.com/kdheepak/lazygit.nvim)
+- [`f-person/git-blame.nvim`](https://github.com/f-person/git-blame.nvim)
 
-- [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)(Launch lazygit in a floating window inside neovim)
+### Editing
 
-- [loupe](https://github.com/wincent/loupe)(Better searching operations)
+- [`numToStr/Comment.nvim`](https://github.com/numToStr/Comment.nvim)
+- [`tpope/vim-surround`](https://github.com/tpope/vim-surround)
+- [`windwp/nvim-autopairs`](https://github.com/windwp/nvim-autopairs)
+- [`windwp/nvim-ts-autotag`](https://github.com/windwp/nvim-ts-autotag)
 
-- [lualine.nvim](https://github.com/hoob3rt/lualine.nvim)(Status line)
+### Treesitter
 
-- [nvim-autopairs](https://github.com/windwp/nvim-autopairs)(Autocomplete quotes/brackers)
+- [`nvim-treesitter/nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
+- [`nvim-treesitter/nvim-treesitter-textobjects`](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)(For autocomplete)
+### LSP and tooling
 
-- [nvim-lsp-install](https://github.com/kabouzeid/nvim-lspinstall)(Easily install language servers)
+- [`mason-org/mason.nvim`](https://github.com/mason-org/mason.nvim)
+- [`mason-org/mason-lspconfig.nvim`](https://github.com/mason-org/mason-lspconfig.nvim)
+- [`neovim/nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig)
+- [`nvimtools/none-ls.nvim`](https://github.com/nvimtools/none-ls.nvim)
 
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)(Configure nvim native lsp)
+### Completion
 
-- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)(File Explorer)
+- [`hrsh7th/nvim-cmp`](https://github.com/hrsh7th/nvim-cmp)
+- [`hrsh7th/cmp-nvim-lsp`](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [`hrsh7th/cmp-buffer`](https://github.com/hrsh7th/cmp-buffer)
+- [`hrsh7th/cmp-path`](https://github.com/hrsh7th/cmp-path)
+- [`saadparwaiz1/cmp_luasnip`](https://github.com/saadparwaiz1/cmp_luasnip)
+- [`L3MON4D3/LuaSnip`](https://github.com/L3MON4D3/LuaSnip)
 
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)(AST parser)
+## LSP Architecture
 
-- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)(Autocomplete html tags)
+- Language servers are installed/enabled through Mason + `mason-lspconfig`.
+- Server configs are registered via native `vim.lsp.config(...)` (Neovim 0.11 style).
+- JS/TS diagnostics come from `eslint` LSP + `ts_ls`.
+- Completion capabilities are provided through `cmp-nvim-lsp`.
 
-- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)(Icons)
+Configured LSP servers:
 
-- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)(Utility functions)
+- `lua_ls`
+- `rust_analyzer`
+- `ts_ls`
+- `eslint`
+- `gopls`
+- `graphql`
+- `html`
+- `pyright`
+- `solc`
+- `yamlls`
+- `clangd`
 
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)(Search)
+## Formatting
 
-- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)(Theme)
+`none-ls` is formatter-focused:
 
-- [vim-surround](https://github.com/tpope/vim-surround)(Extend vim functions for brackets/tags/quotes realted operations)
+- Lua: `stylua`
+- JS/TS/Web: `prettierd`
+- Go: `gofmt`
 
-### Add more plugins
+Use `:Format` to format the current buffer.
 
-The plugins are managed using [lazy.nvim](https://github.com/folke/lazy.nvim).
-To add a plugin go to lua/plugins/init.lua and go to the lazy.nvim setup function call.
-Add the new plugin to the list of plugins inside the spec field.
+## Treesitter Parsers
 
-```lua
-local lazy = require('lazy')
+Configured parser install list includes:
 
-lazy.setup({
-    spec = {
-        ... -- Other plugins
-        {
-            'new_plugin',
-            config = function()
-                require('plugins.new_plugin') -- import the plugin configuration file if needed
-            end
-            ... -- Other configurations
-        },
-    }
-})
-```
-
-## Colorscheme
-
-- [Tokyonight](https://github.com/folke/tokyonight.nvim) - Night mode
-
-## LSP
-
-### Installed language servers
-
-- bashls
-- clangd
-- cssls
-- efm (For linting and auto-formatting)
-- emmet_ls
-- graphql
-- html
-- typescript
-- pyright
-- sumenko_lua
-- tsserver
-  More language servers can be installed using `nvim-lspinstall`'s `:LspInstall <server_name>`
-
-## Treesitter
-
-### Installed language parsers
-
-- bash
-- c
-- cpp
-- css
-- dockerfile
-- dot
-- graphql
-- html
-- javascript
-- jsdoc
-- json
-- lua
-- markdown
-- python
-- regex
-- tsx
-- typescript
-- yaml
+- `bash`, `c`, `cpp`, `css`, `dockerfile`, `dot`, `go`, `graphql`
+- `html`, `javascript`, `jsdoc`, `json`, `lua`, `markdown`
+- `python`, `prisma`, `regex`, `rust`, `tsx`, `typescript`, `yaml`, `styled`
