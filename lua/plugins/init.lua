@@ -82,7 +82,12 @@ lazy.setup(
           require("plugins.loupe")
         end,
       },
-      { "b3nj5m1n/kommentary" }, -- Code comments
+      {
+        "numToStr/Comment.nvim", -- Code comments
+        config = function()
+          require("plugins.comment")
+        end,
+      },
       { "tpope/vim-surround" }, -- Extend vim functions for brackets/tags/quotes realted operations
       -- { "github/copilot.vim" }, -- Copilot
       {
