@@ -21,7 +21,9 @@ mason_lspconfig.setup({
 
 vim.diagnostic.config({
   underline = false,
-  signs = true,
+  signs = {
+    text = utils.get_diagnostic_sign_text(),
+  },
   update_in_insert = false,
   virtual_text = false,
   float = {

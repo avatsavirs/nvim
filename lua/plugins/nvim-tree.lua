@@ -96,7 +96,7 @@ nvim_tree.setup({
     enable = true,
     icons = {
       hint = '',
-      info = '',
+      info = '',
       warning = '',
       error = '',
     },

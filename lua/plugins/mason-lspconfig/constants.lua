@@ -48,15 +48,15 @@ M.LSP_KEY_MAPPINGS = {
 M.DIAGNOSTICS_SIGNS = {
   {
     type = 'Error',
-    icon = '',
+    icon = '',
   },
   {
     type = 'Warn',
-    icon = '',
+    icon = '',
   },
   {
     type = 'Hint',
-    icon = '',
+    icon = '',
   },
   {
     type = 'Info',
