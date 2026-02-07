@@ -14,7 +14,8 @@ end
 
 function utils.set_option(option_name, option_value)
   if type(option_value) == 'function' then
-    vim.opt[option_name] = option_value(vim.opt[option_name]._value) -- current value for `option_name` is passed to `option_value` callback function.
+    local ok, current_value = pcall(vim.api.nvim_get_option_value, option_name, { scope = 'global' })
+    vim.opt[option_name] = option_value(ok and current_value or nil) -- current value for `option_name` is passed to `option_value` callback function.
   else
     vim.opt[option_name] = option_value
   end
