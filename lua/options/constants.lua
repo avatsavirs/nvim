@@ -28,7 +28,7 @@ return {
     hidden = true, -- Hide buffer instead of closing on buffer change
     autoread = true, -- Update vim if a file changes from outside of vim
     shortmess = function(current_value)
-      return current_value .. 'I' -- Disable introduction screen on startup
+      return current_value .. 'IW' -- Disable introduction screen on startup and hide file write message
     end,
     packpath = CONSTANTS.PACK_PATH, -- Set path for plugins
     cmdheight=0, --set cmdheight=0
